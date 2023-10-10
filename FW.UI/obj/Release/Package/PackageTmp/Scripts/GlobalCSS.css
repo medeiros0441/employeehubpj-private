@@ -1,0 +1,392 @@
+﻿
+
+/* styles.css */
+@import url('objetos.css');
+@import url('w3.css');
+
+/* Seu código CSS personalizado aqui */
+/* Classe CSS personalizada com uma transição suave */
+.custom-transition {
+    transition-property: height, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+    /* Defina o valor inicial da opacidade como 0 (totalmente transparente) */
+    .custom-transition.closed {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    /* Quando o container está aberto, defina a altura para auto (altura total) e a opacidade para 1 (totalmente visível) */
+    .custom-transition.open {
+        height: auto;
+        opacity: 1;
+        overflow: visible;
+    }
+
+:root {
+    --laranja: #DF6316;
+    --black: #000000;
+    --whiter: var(--bs-light);
+    --url-logo-black: url('../Imagens/objetos-empresa/logo-black.png');
+   --url-logo-whiter: url('../Imagens/objetos-empresa/logo-whiter.png');
+    --nome-empresa: "EMPLOYEE HUB PJ";
+} 
+ 
+/* Estilos específicos para .logo-empresa-black */
+.logo-empresa-black {
+    background-image: var(--url-logo-black); 
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* Estilos específicos para .logo-empresa-whiter */
+.logo-empresa-whiter {
+    background-image: var(--url-logo-whiter);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.nome-empresa::before {
+    content: var(--nome-empresa);
+}
+.color-laranja{
+ color:var(--laranja);   
+}
+
+.color-dark {
+    color: var(--laranja);
+}
+.background-dark {
+    background-size: var(--bs-dark);
+}
+
+.background-laranja  {
+    background-size: var(--bs-dark);
+}
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+} 
+
+::-webkit-scrollbar {
+display:none;
+}
+.scrollOn::-webkit-scrollbar {
+    width: 5px;
+    display: block;
+}
+.scrollOn::-webkit-scrollbar-track {
+    background-color: none;
+    border-radius: 15px;
+}
+.scrollOn::-webkit-scrollbar-thumb {
+    background-color: var(--laranja);
+    border-radius: 5px;
+}
+.customer-link {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-size: 15px; /* Tamanho da fonte */
+    display: inline-block;
+}
+
+    .customer-link::after {
+        content: ""; /* Cria um elemento de conteúdo vazio */
+        display: block; /* Exibe como um bloco (um retângulo) */
+        width: 0; /* Inicialmente, a largura é zero, portanto, não é visível */
+        height: 1.5px; /* Altura do sublinhado */
+        background-color: var(--laranja); /* Cor do sublinhado */
+        transition: .5s ease-out; /* Efeito de transição suave */
+    }
+.customer-link:hover::after {
+    width: 100%; /* Aumenta a largura do sublinhado para 100% ao passar o mouse */
+}
+     
+
+.container__column {
+    flex: 1;
+    /* Space between columns */
+    margin: 0 8px;
+    /* Layout each column */
+    display: flex;
+    flex-direction: column;
+}
+
+.container__content {
+    /* Take available height */
+    flex: 1;
+}
+
+ 
+  
+.tablink:hover {
+        background-color: #777;
+    }
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+ 
+ /*Efeito de onda*/
+.custom-shape-divider-bottom-1618516495 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+    .custom-shape-divider-bottom-1618516495 svg {
+        position: relative;
+        display: block;
+        width: calc(106% + 1.3px);
+        height: 50px;
+    }
+
+    .custom-shape-divider-bottom-1618516495 .shape-fill {
+        fill: var(--bs-dark);
+    } 
+
+     
+    .scrollOn::-webkit-scrollbar {
+        width: 5px;
+        display: block;
+    }
+
+
+.scrollOn::-webkit-scrollbar-track {
+        background-color: none;
+        border-radius: 15px;
+}
+
+    .scrollOn::-webkit-scrollbar-thumb {
+        background-color: var(--bs-dark);
+        border-radius: 5px;
+    }
+      
+   /* Slide DEfault & Sobre paginas  */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.slide {
+    max-width: 380px;
+    margin: 20px auto;
+    display: grid;
+    box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
+}
+
+.slide-items {
+    position: relative;
+    grid-area: 1/1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.slide-nav {
+    grid-area: 1/1;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+    .slide-nav button {
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        opacity: 0;
+    }
+
+.slide-items > * {
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slide-items > .active {
+    position: relative;
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.slide-thumb {
+    display: flex;
+    grid-column: 1 / 3;
+}
+
+    .slide-thumb > span {
+        flex: 1;
+        display: block;
+        height: 3px;
+        background: rgba(0, 0, 0, 0.4);
+        margin: 5px;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+        .slide-thumb > span.active::after {
+            content: '';
+            display: block;
+            height: inherit;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+            transform: translateX(-100%);
+            animation: thumb 5s forwards linear;
+        }
+
+@keyframes thumb {
+    to {
+        transform: initial;
+    }
+} 
+/*Main*/
+
+
+.Centro {
+    width: 100%;
+    max-height: 100%;
+    padding: 0;
+}
+  
+
+.Centro1 {
+    height: 300px;
+    position: center;
+}
+
+/*Faixa azul*/
+.Faixa-Azul {
+    width: 100%;
+    min-height: 100px;
+    max-height: 1700px;
+    background-color: var(--bs-dark);
+    margin: 0;
+    padding: 0;
+} 
+
+.Centro2 {
+    width: 100%;
+    min-height: 100px;
+    max-height: 1370px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+    border-radius: 2px 2px;
+}
+
+    .tablink:hover {
+        background-color: #777;
+    }
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+
+
+
+/*Contato*/
+
+.CentroContato {
+    width: 100%;
+    min-height: 100px;
+}
+
+.LinksContato p {
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+
+/* Estilo base para o botão outline com classe 'btn-outline-customer' */
+.btn-outline-customer {
+    color: var(--laranja); /* Cor do texto padrão (laranja personalizado) */
+    background-color: var(--bs-dark); /* Cor de fundo padrão (por exemplo, branco) */
+    border-color: var(--laranja); /* Cor da borda padrão (laranja personalizado) */
+    transition: all 0.3s; /* Adiciona uma transição suave para suavizar as mudanças de estilo */
+}
+
+    /* Estilo quando o mouse está sobre o botão */
+    .btn-outline-customer:hover {
+        background-color: var(--laranja); /* Cor de fundo quando o mouse passa sobre o botão (laranja personalizado) */
+        color: var(--bs-dark); /* Cor do texto quando o mouse passa sobre o botão (por exemplo, branco) */
+    }
+
+    /* Estilo quando o botão está em foco (por exemplo, após ser clicado) */
+    .btn-outline-customer:focus {
+        outline: none; /* Remove a borda de foco padrão para melhor acessibilidade */
+        background-color: var(--laranja); /* Cor de fundo quando o botão está em foco (laranja personalizado) */
+        color: var(--bs-dark); /* Cor do texto quando o botão está em foco (por exemplo, branco) */
+        box-shadow: 0 0 0 0.2rem rgba(223, 99, 22, 0.5); /* Adiciona um efeito de sombra para indicar o foco */
+    }
+
+
+
+
+
+
+/* Estilo base para o botão outline com classe 'btn-outline-customer' */
+.btn-outline-customer2 {
+    color: var(--bs-dark); /* Cor do texto padrão (laranja personalizado) */
+    background-color: var(--laranja); /* Cor de fundo padrão (por exemplo, branco) */
+    border-color: var(--bs-dark); /* Cor da borda padrão (laranja personalizado) */
+    transition: all 0.3s; /* Adiciona uma transição suave para suavizar as mudanças de estilo */
+}
+
+    /* Estilo quando o mouse está sobre o botão */
+.btn-outline-customer2:hover {
+    background-color: var(--bs-dark); /* Cor de fundo quando o mouse passa sobre o botão (laranja personalizado) */
+    color: var(--laranja); /* Cor do texto quando o mouse passa sobre o botão (por exemplo, branco) */
+}
+
+    /* Estilo quando o botão está em foco (por exemplo, após ser clicado) */
+.btn-outline-customer2:focus {
+    outline: none; /* Remove a borda de foco padrão para melhor acessibilidade */
+    background-color: var(--bs-dark); /* Cor de fundo quando o botão está em foco (laranja personalizado) */
+    color: var(--laranja); /* Cor do texto quando o botão está em foco (por exemplo, branco) */
+    box-shadow: 0 0 0 0.2rem rgba(223, 99, 22, 0.5); /* Adiciona um efeito de sombra para indicar o foco */
+}
+
+
+ 

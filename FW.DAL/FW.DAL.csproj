@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6DE79340-AF25-422C-9834-AA34757C9722}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Chateau.DAL</RootNamespace>
+    <AssemblyName>Chateau.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministrativoDAL.cs" />
+    <Compile Include="CandidatoDAL.cs" />
+    <Compile Include="CandidaturaSimplificadaDAL.cs" />
+    <Compile Include="CertificadoDAL.cs" />
+    <Compile Include="ClienteDAL.cs" />
+    <Compile Include="ComentarioDAL.cs" />
+    <Compile Include="Conexao.cs" />
+    <Compile Include="ConsumoDAL.cs" />
+    <Compile Include="EmpresaDAL.cs" />
+    <Compile Include="ExperienciaDAL.cs" />
+    <Compile Include="GoogleDAL.cs" />
+    <Compile Include="HistoricoDAL.cs" />
+    <Compile Include="LogDAL.cs" />
+    <Compile Include="PagamentoDAL.cs" />
+    <Compile Include="NotificacaoDAL.cs" />
+    <Compile Include="ProfissionalDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicacaoDAL.cs" />
+    <Compile Include="RedesocialDAL.cs" />
+    <Compile Include="SaldoDAL.cs" />
+    <Compile Include="SessaoDAL.cs" />
+    <Compile Include="TipoUserDAL.cs" />
+    <Compile Include="VagaDAL.cs" />
+    <Compile Include="Vaga_Status_Adm_DAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ScriptDB\procedures_chateau.sql" />
+    <Content Include="ScriptDB\rascunho_query.sql" />
+    <Content Include="ScriptDB\Scrit_Chateau.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FW.DTO\FW.DTO.csproj">
+      <Project>{c4f4fa54-ae67-46c2-a539-4c3b43146cca}</Project>
+      <Name>FW.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ScriptDB\CONCEITUAL_1.brM" />
+    <None Include="ScriptDB\LOGICO_1" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

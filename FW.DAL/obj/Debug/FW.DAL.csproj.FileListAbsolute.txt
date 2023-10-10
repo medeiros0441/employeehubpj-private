@@ -1,0 +1,9 @@
+C:\Users\medei\source\repos\project\FW.DAL\bin\Debug\Chateau.DAL.dll
+C:\Users\medei\source\repos\project\FW.DAL\bin\Debug\Chateau.DAL.pdb
+C:\Users\medei\source\repos\project\FW.DAL\bin\Debug\Chateau.DTO.dll
+C:\Users\medei\source\repos\project\FW.DAL\bin\Debug\Chateau.DTO.pdb
+C:\Users\medei\source\repos\project\FW.DAL\obj\Debug\FW.DAL.csproj.AssemblyReference.cache
+C:\Users\medei\source\repos\project\FW.DAL\obj\Debug\FW.DAL.csproj.CoreCompileInputs.cache
+C:\Users\medei\source\repos\project\FW.DAL\obj\Debug\FW.DAL.csproj.CopyComplete
+C:\Users\medei\source\repos\project\FW.DAL\obj\Debug\Chateau.DAL.dll
+C:\Users\medei\source\repos\project\FW.DAL\obj\Debug\Chateau.DAL.pdb

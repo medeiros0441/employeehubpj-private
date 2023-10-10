@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.Master.cs" Inherits="FW.UI.Default" %>
+
+<%@ Register TagName="Header" TagPrefix="uc" Src="~/ascx/Header.ascx" %>
+<%@ Register TagName="Footer" TagPrefix="uc" Src="~/ascx/Footer.ascx" %>
+
+<%@ Register TagName="PesquisaFiltro" TagPrefix="uc" Src="~/ascx/PesquisaFiltro.ascx" %>
+<%@ Register TagName="MenuCliente" TagPrefix="uc" Src="~/ascx/MenuCliente.ascx" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="google-adsense-account" content="ca-pub-7884145343563279">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Imagens/objetos-empresa/logo-whiter.png" rel="icon" type="image/png" sizes="16x16" />
+    <link href="Scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Scripts/GlobalCSS.css" rel="stylesheet" />
+    <title>Employee PJ</title>
+    <meta name="google-site-verification" content="XUzzJvZ6zUITWhYr535j0pAS1VqahU9hZtolWrT_kNE" />
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XW31J69FD"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="container-fluid p-0 m-0">
+     <script src="../Scripts/jquery-3.6.0.min.js"></script>
+     
+ <script src="../Scripts/jquery.mask.min.js"></script>
+ <script src="../Scripts/js/bootstrap.min.js"></script>
+ <script src="../Scripts/moment/moment.min.js"></script>
+ <script src="../Scripts/moment/moment.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/pt-br.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js" integrity="sha512-vUJTqeDCu0MKkOhuI83/MEX5HSNPW+Lw46BA775bAWIp1Zwgz3qggia/t2EnSGB9GoS2Ln6npDmbJTdNhHy1Yw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <form id="form1" runat="server">
+        <div class="wrapper   ">
+            <div class="  content ">
+                 <div class="m-0 container-fluid bg-dark p-0">
+
+                <uc:Header runat="server" ID="HeaderControl" />
+                <uc:MenuCliente runat="server" ID="MenuControl"   />
+                 <div class="position-relative bg-dark container mx-auto row">
+     <div class="col-sm-10 mx-auto  row position-absolute top-50 start-50 translate-middle">
+
+         <div runat="server" class=" container  mx-auto  " id="AlertaJS">
+         </div>
+
+     </div>
+     <uc:PesquisaFiltro runat="server" ID="PesquisaFiltroControl" />
+     </div>
+     </div>
+
+
+
+                <div class="container-fluid  p-0 mx-0  row"  >
+
+                    
+
+                    <div id="container_loading" class="conteudo-temporario-oculto container-fluid  p-0 m-0">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+
+            <uc:Footer runat="server" ID="FooterControl" />
+
+        </div>
+
+        
+
+        <script src="../Scripts/GlobalJS.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7884145343563279" crossorigin="anonymous"></script>
+
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" EnablePartialRendering="true" runat="server"></asp:ScriptManager>
+
+    </form>
+
+</body>
+</html>

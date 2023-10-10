@@ -1,0 +1,12 @@
+C:\Users\medei\source\repos\medeiros0441\Chateau.2.5\Chateau.DTO\bin\Debug\Chateau.DTO.dll
+C:\Users\medei\source\repos\medeiros0441\Chateau.2.5\Chateau.DTO\bin\Debug\Chateau.DTO.pdb
+C:\Users\medei\source\repos\medeiros0441\Chateau.2.5\Chateau.DTO\obj\Debug\Chateau.DTO.csproj.AssemblyReference.cache
+C:\Users\medei\source\repos\medeiros0441\Chateau.2.5\Chateau.DTO\obj\Debug\Chateau.DTO.csproj.CoreCompileInputs.cache
+C:\Users\medei\source\repos\medeiros0441\Chateau.2.5\Chateau.DTO\obj\Debug\Chateau.DTO.dll
+C:\Users\medei\source\repos\medeiros0441\Chateau.2.5\Chateau.DTO\obj\Debug\Chateau.DTO.pdb
+C:\Users\medei\source\repos\project\Chateau.DTO\bin\Debug\Chateau.DTO.dll
+C:\Users\medei\source\repos\project\Chateau.DTO\bin\Debug\Chateau.DTO.pdb
+C:\Users\medei\source\repos\project\Chateau.DTO\obj\Debug\Chateau.DTO.csproj.AssemblyReference.cache
+C:\Users\medei\source\repos\project\Chateau.DTO\obj\Debug\Chateau.DTO.csproj.CoreCompileInputs.cache
+C:\Users\medei\source\repos\project\Chateau.DTO\obj\Debug\Chateau.DTO.dll
+C:\Users\medei\source\repos\project\Chateau.DTO\obj\Debug\Chateau.DTO.pdb

@@ -1,0 +1,2 @@
+C:\Users\medei\source\repos\project\Chateau.UI\obj\Debug\UI.csproj.AssemblyReference.cache
+C:\Users\medei\source\repos\project\Chateau.UI\obj\Debug\UI.csproj.CoreCompileInputs.cache

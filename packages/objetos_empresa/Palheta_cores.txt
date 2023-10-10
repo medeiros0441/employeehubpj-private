@@ -1,0 +1,3 @@
+laranja tonalidade:#DF6316
+black tonalidade:#000000
+whiter tonalidade:#F4F4F4

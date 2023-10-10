@@ -1,0 +1,396 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.Master.cs" Inherits="FW.UI.DefaultEmpresa" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="google-adsense-account" content="ca-pub-7884145343563279">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../Imagens/objetos-empresa/logo-whiter.png" rel="icon" type="../image/png" sizes="16x16" />
+    <link href="../Imagens/icones/bootstrap-icons.css" rel="stylesheet" />
+
+
+    <link href="../Scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Scripts/GlobalCSS.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css" integrity="sha512-2eMmukTZtvwlfQoG8ztapwAH5fXaQBzaMqdljLopRSA0i6YKM8kBAOrSSykxu9NN9HrtD45lIqfONLII2AFL/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css" integrity="sha512-zxBiDORGDEAYDdKLuYU9X/JaJo/DPzE42UubfBw9yg8Qvb2YRRIQ8v4KsGHOx2H1/+sdSXyXxLXv5r7tHc9ygg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Employee Hub Pj</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="container-fluid p-0 m-0">
+
+    <form id="form1" runat="server" enctype="multipart/form-data">
+
+       
+        
+                <div   class="wrapper   "> 
+                <div   class="  content mb-3 "> 
+            
+                            <header class="px-0 row container-fluid mx-0 justify-content-between align-items-center shadow-lg shadow mb-2" style="background-color: var(--bs-dark);">
+    <div class="col-10 col-md-3">
+        <a class="text-decoration-none customer-link text-secondary text-uppercase py-3 font-monospace fw-bold" tabindex="1" href="Default.aspx">
+            <span class="nome-empresa"></span>
+        </a>
+    </div>
+    <div class="px-0 col-2 col-md-9 d-flex align-items-center justify-content-end"   >
+        <div class="align-items-center d-flex d-inline-flex  col-md-12 justify-content-end" ID="campo_pesquisa">
+        <div class="col-12 form-floating px-2 d-none d-md-block order-1">
+            <asp:TextBox CssClass="form-control-sm form-control" ID="TxtBusca" runat="server" tabindex="-1" placeholder="e" MaxLength="100" />
+            <label id="lblTitulo" for="txtTitulo" class="small text-secondary collapse multi-collapse_Filtro show font-monospace">Digite algo..</label>
+        </div>
+        <asp:LinkButton OnClick="Btn_Busca_Click" runat="server" ID="Btn_Busca" CausesValidation="false" tabindex="-1" CssClass="d-none d-md-block d-inline-flex  py-3 float-end text-white p-2 btn btn-link order-first order-2 show multi-collapse_Filtro collapse">
+            <svg class="bi collapse multi-collapse_Filtro show" id="btn_Svg" width="20" height="20" role="img" fill="currentColor">
+                <use href="../Imagens/icones/bootstrap-icons.svg#search"></use>
+            </svg>
+        </asp:LinkButton>
+
+        <button onclick="open_filtro()" id="btn_filtro" tabindex="-1" type="button" class="d-inline-flex btn float-end py-3 text-white btn btn-link p-2 order-3">
+            <svg class="bi show multi-collapse_Filtro collapse" id="svg_sliders" width="20" height="20" role="img" fill="currentColor">
+                <use href="../Imagens/icones/bootstrap-icons.svg#sliders"></use>
+            </svg>
+        </button>
+  </div>
+
+          <div class="d-block  col justify-content-end   text-end d-md-none d-inline-flex float-end order-3  ">
+<button id="BtnFechar" runat="server" type="button" onclick="FecharMenu()" causesvalidation="false" class=" d-none btn text-white    ">
+          <svg class="bi text-light " width="20" height="20" role="img" aria-label="Feed" fill="currentColor">
+              <use href="../Imagens/icones/bootstrap-icons.svg#box-arrow-in-left"></use></svg>
+      </button>
+      <button onclick="AbrirMenu()" runat="server" class=" d-block btn text-white " type="button" causesvalidation="false" id="BtnAbrir">
+          <svg class="bi text-light   " width="20" height="20" fill="currentColor">
+              <use href="../Imagens/icones/bootstrap-icons.svg#box-arrow-right"></use></svg>
+      </button>
+  </div>
+  </div>
+</header>
+
+        <div class="container-fluid  align-content-center   row mx-auto " style="max-width: 2500px">
+
+            <asp:Panel runat="server" ID="Menu" Visible="true"  CssClass="  col-12 d-none d-md-block  col-md-3 col-xxl-2  d-md-block d-flex flex-column flex-shrink-0 p-3 font-monospace">
+                <ul class=" nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="default.aspx" class="nav-link link-dark text-truncate" aria-current="page">
+                            <svg class="bi me-2 " width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#speedometer2"></use></svg>
+                            FEED
+                        </a>
+                    </li>
+                    <li>
+                         <asp:linkButton runat="server"  href="EditarVagas.aspx" class="nav-link link-dark text-truncate">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#file-earmark-plus" />
+                            </svg>
+                            CRIAR OPORTUNIDADE
+                        </asp:linkButton>
+                    </li>
+                    <li>
+                        <asp:linkButton runat="server"  OnCommand="BtnViewCliente_Command"  class="nav-link link-dark text-truncate">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#person-lines-fill" />
+                            </svg>
+                            PERFIL
+                        </asp:linkButton>
+                    </li>
+                    <li>
+                        <a class="nav-link link-dark text-truncate" href="listvagas.aspx">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#layers"></use></svg>
+                            LISTA DE VAGAS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="notificacao.aspx" class="nav-link link-dark text-truncate">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#bell"></use></svg>
+                            NOTIFICAÇÔES
+                        </a>
+                    </li>
+                    <li>
+                        <asp:LinkButton runat="server" OnCommand="Add_value_Command" ID="add_value"   class="nav-link link-dark">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#stack" />
+                            </svg>
+                            CANDIDATOS
+                        </asp:LinkButton>
+                    </li>
+                    <li>
+                        <a href="View_Saldo.aspx" class="nav-link link-dark text-truncate">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#cash-coin" />
+                            </svg>
+                            SALDO
+                        </a>
+                    </li>
+                </ul>
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>EDITAR</span>
+                    <a runat="server" class="link-secondary" aria-label="Add a new report">
+                        <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                            <use href="../Imagens/icones/bootstrap-icons.svg#sliders"></use></svg>
+                    </a>
+                </h6>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li>
+                        <asp:linkButton runat="server"   class="nav-link link-dark text-truncate" href="EditarRecrutador.aspx">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#folder-plus"></use></svg>
+                            PERFIL
+                        </asp:linkButton>
+                    </li>
+                    <li>
+                        <a runat="server" class="nav-link link-dark text-truncate" href="EditarVagas.aspx">
+                            <svg class="bi me-2" width="25" height="25" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#columns-gap"></use></svg>
+                            OPORTUNIDADE
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <asp:LinkButton runat="server" ID="Btnconf" class="sidebar-heading d-flex btn  btn-btn-secondary justify-content-between align-items-center  mt-4 mb-1  text-muted"
+                    PostBackUrl="Configuracao.aspx">
+          <span class="fs-6 me-2  text-truncate  " >CONFIGURAÇÃO</span>
+               <svg class="bi me-2" width="25" height="25"  fill="currentColor"><use href="../Imagens/icones/bootstrap-icons.svg#gear"></use></svg>
+                </asp:LinkButton>
+          
+            </asp:Panel>
+
+
+            <main runat="server" data-bs-spy="scroll" id="main"   style="max-height: 700px; min-height: 300px; height: 100%"
+                class="MainPro d-md-block navbar-nav-scroll mx-sm-auto  col-sm-11  col-12 col-md-9" tabindex="-1">
+               
+              
+                <div runat="server" class=" " id="loading">
+                </div>
+                <div runat="server" class=" container mx-auto " id="AlertaJS">
+                </div>
+
+                
+
+
+                <div class="col my-4  " id="Filtro_container" style="display: none" tabindex="-1">
+                    <div class="card text-dark  mb-3">
+                        <div class="card-header  ">
+                            <svg class="bi  me-2  text-dark" width="20" height="20" role="img" fill="currentColor">
+                                <use href="../Imagens/icones/bootstrap-icons.svg#sliders"></use></svg>
+                            <asp:Label runat="server" Text="Filtro" CssClass="text-dark font-monospace  fw-bold"></asp:Label>
+                            <button tabindex="1" id="btn_close_filtro" onclick="close_filtro()" type="button" class=" p-0 btn float-end text-dark    ">
+                                <svg class="bi   text-dark" width="20" height="20" role="img" fill="currentColor">
+                                    <use href="../Imagens/icones/bootstrap-icons.svg#x-lg"></use></svg>
+                            </button>
+                        </div>
+
+                        <div class="card-body     ">
+                            <div class="   font-monospace  text-uppercase d-inline-flex p-0 col-12 ">
+
+                                <button runat="server" type="button" onclick="Fechando_cliente()" id="Button_Abrir_campoOportunidade" class="col mx-auto text-truncate btn   text-center "
+                                    data-bs-toggle="collapse" data-bs-target="#pn_oportunidade_2" aria-expanded="false" tabindex="2">
+                                    <svg class="bi img-fluid  me-2  text-dark  " width="20" height="20" fill="currentColor">
+                                        <use href="../Imagens/icones/bootstrap-icons.svg#columns-gap" />
+                                    </svg>
+                                    Oportunidades 
+                                </button>
+                                <button runat="server" type="button" onclick="Fechando_Oportunidades()" id="btn_Buscar_Vagas" tabindex="3" class="col mx-auto text-truncate btn   text-center "
+                                    data-bs-toggle="collapse" data-bs-target="#pn_cliente_2" aria-expanded="false">
+                                    <svg class="bi img-fluid  me-2  text-dark  " width="20" height="20" fill="currentColor">
+                                        <use href="../Imagens/icones/bootstrap-icons.svg#people" />
+                                    </svg>
+                                    Clientes
+                                </button>
+                            </div>
+
+
+                            <div class="collapse multi-collapse multi-collapse_Filtro collapse-horizontal col-12 my-2   row g-1 pn_oportunidade_2" tabindex="-1" id="pn_oportunidade_2">
+                              
+                              <div class="col-12 col-sm-8 col-md-12 form-floating mb-2  " id="campo_NomeVaga">
+                                    <asp:TextBox CssClass="form-control" ID="txtTitulo_buscar" runat="server" TabIndex="1" placeholder="e" MaxLength="100" />
+                                    <label id="lblTitulo_buscar" for="txtTitulo_buscar" class="small text-secondary font-monospace">Título</label>
+                                </div>
+                                <div class="   col-sm-4 col-md-4 form-floating  mb-2" id="campo_TipoRegistro">
+                                    <asp:DropDownList ID="dllRegistro_pesquisa" runat="server" CssClass=" form-select-sm form-select text-secondary small" TabIndex="2">
+                                        <asp:ListItem Value="0" Text="Selecione" />
+                                          <asp:ListItem  Value="Estágio" Text="Estágio" />
+                                        <asp:ListItem  Value="CLT"  Text="CLT" />
+                                        <asp:ListItem Value="Freelancer"  Text="Freelancer" />
+                                        <asp:ListItem   Value="Temporário"  Text="Temporário" />
+                                        <asp:ListItem  Value="PJ" Text="PJ" />
+                                        <asp:ListItem  Value="Outro" Text="Outro" />
+                                    </asp:DropDownList>
+                                    <label for="dllRegistro" class="small text-secondary font-monospace ">Tipo de Registro</label>
+                                </div>
+                                <div class="col-sm-6 col-md-4 form-floating  mb-2  " id="campo_Experiencia">
+                                    <asp:DropDownList ID="ddlExperiencia" runat="server" CssClass=" form-select-sm form-select text-secondary small" placeholder="e" TabIndex="3">
+                                        <asp:ListItem Value="0" Text="Selecione" />
+                                          <asp:ListItem Value="Assistente"  Text="Assistente" />
+                                            <asp:ListItem Value="Júnior" Text="Júnior" />
+                                            <asp:ListItem  Value="Pleno-sênior" Text="Pleno-sênior" />
+                                            <asp:ListItem   Value="Diretor" Text="Diretor" />
+                                            <asp:ListItem  Value="Executivo" Text="Executivo" />
+                                    </asp:DropDownList>
+                                    <label for="ddlExperiencia" class="small text-secondary font-monospace">Nível de Experiência</label>
+                                </div>
+                                <div class="col-sm-6 col-md-4 form-floating  mb-2 ">
+                    <asp:DropDownList ID="DDLTipoVaga" runat="server" placeholder="Tipo de Vaga Presencial/remota" CssClass=" form-select-sm form-select text-secondary small"   TabIndex="2">
+                        <asp:ListItem Value="0" Text="Selecione" />
+                        <asp:ListItem Text="Presencial" />
+                        <asp:ListItem   Text="Remoto" />
+                        <asp:ListItem   Text="Híbrido" />
+                    </asp:DropDownList>
+                    <label for="DDLTipoVaga" class="small text-secondary font-monospace">Tipo de Vaga Presencial/remota</label>
+
+                </div>
+
+                                 
+                                 
+                                        <div class="col-sm-6 form-floating">
+                                            <asp:TextBox runat="server" CssClass="form-control   form-control-sm  "   ID="txtUF"  placeholder="UF"     TabIndex="3" /> 
+                                            <label for="txtUF" class="text-secondary small">UF</label>
+                                        </div>
+
+                                        <div class="col-sm-6   form-floating">
+                                            <asp:TextBox runat="server" CssClass="form-control   form-control-sm   "      ID="txtCidade" placeholder="Cidade" TabIndex="6" />
+                                            <label for="txtCidade" class="text-secondary small">Cidade</label>
+                                        </div>
+                                <asp:Button runat="server" UseSubmitBehavior="false"  OnClick="Btn_BuscaOportunidade_Click" ID="btnProcurarOportunidade" TabIndex="4" type="button" CausesValidation="false" Text="Buscar" CssClass="btn btn-sm mx-auto col-sm-7 col-10   btn-outline-danger"  />
+                            </div>    
+                            <div class="collapse multi-collapse collapse-horizontal col-12 my-2  row g-1 pn_cliente_2" tabindex="-1" id="pn_cliente_2">
+                                <h1 class=" fw-bold font-monospace ms-1 fs-6 small">Procurar pessoas</h1>
+                                
+                                <div class="mb-2 col-lg-6 form-floating    " id="campo_nome">
+                                    <asp:TextBox placeholder="nome" CssClass="form-control" ID="txtNome_pesquisa" runat="server" TabIndex="1" MaxLength="100" />
+                                    <label id="lblNome" class="text-secondary small" for="txtNome">Nome</label>
+                                </div>
+
+                                <div class="mb-2 col-lg-6 form-floating " id="campo_usuario">
+                                    <asp:TextBox runat="server" CssClass="form-control " placeholder="user" ID="txtUsuario_pesuisa" TabIndex="2" />
+                                    <label class="text-secondary small" for="txtUser">Usuario</label>
+                                </div>
+                                <div class="mb-2 form-floating col-sm-6    " id="campo_Formacao">
+                                    <asp:DropDownList runat="server" ID="DdlFormacaoAcademica_pesquisa" TabIndex="3" DataTextField="SE" CssClass=" form-select-sm form-select text-dark small">
+                                        <asp:ListItem Value="0" Text="Selecione" />
+                                        <asp:ListItem Text="Ensino Médio" Value="Ensino Médio" />
+                                        <asp:ListItem Text="Técnico" Value="Técnico" />
+                                        <asp:ListItem Text="Graduação" Value="Graduação" />
+                                        <asp:ListItem Text="Mestrado" Value="Mestrado" />
+                                        <asp:ListItem Text="Doutorado" Value="Doutorado" />
+                                        <asp:ListItem Text="Pós Doutorado" Value="Pós Doutorado" />
+                                        <asp:ListItem Text="Livre Dôcencia" Value="Livre Dôcencia" />
+                                    </asp:DropDownList>
+                                    <label for="DdlFormacaoAcademica_pesquisa" class="">Formação Acadêmica</label>
+                                </div>
+                                <div class="mb-2 form-floating col-sm-6   " id="campo_Sexo">
+                                    <asp:DropDownList ID="ddlSexo_pesquisa" runat="server" CssClass=" form-select-sm form-select text-dark small" placeholder="Sexo" TabIndex="4">
+                                        <asp:ListItem Value="0" Text="indiferente" />
+                                        <asp:ListItem Value="Masculino" Text="Masculino" />
+                                        <asp:ListItem Value="Feminino" Text="Feminino" />
+                                    </asp:DropDownList>
+                                    <label for="DDLSexo" class="text-secondary small">Sexo</label>
+                                </div>
+                 <div class="col-sm-6 form-floating">
+                                            <asp:TextBox runat="server" CssClass="form-control   form-control-sm  "   ID="TextBox3"  placeholder="UF"     TabIndex="3" /> 
+                                            <label for="txtUF" class="text-secondary small">UF</label>
+                                        </div>
+
+                                        <div class="col-sm-6   form-floating">
+                                            <asp:TextBox runat="server" CssClass="form-control   form-control-sm   "      ID="TextBox4" placeholder="Cidade" TabIndex="6" />
+                                            <label for="txtCidade" class="text-secondary small">Cidade</label>
+                                        </div>
+                                <asp:Button runat="server" type="button" ID="btn_buscarCliente" CausesValidation="false" Text="Buscar" CssClass="btn btn-sm btn-lg  btn-outline-danger" TabIndex="5" OnClick="Btn_BuscaClientes_Click" />
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
+      </div>
+                </div>
+
+       
+   <footer class="footer">
+
+       <div class="custom-shape-divider-bottom-1618516495">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+               <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+               <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+               <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+           </svg>
+       </div>
+
+       <div class="w-100 " style="margin: -3px auto;background-color: var(--bs-dark);    float: right;"  >
+           <div   style="margin: auto;    color: white;">
+               <div class=" container-xxl " style="min-height: 100px; padding: 0 20px 0 20px">
+                   <div class="row my-3">
+                       <div class="col  text-center">
+                           <label class="customer-link fs-5 text-uppercase font-monospace"> Comunidade </label>
+                           <ul class="list-group  mb-1">
+                               <li class=" list-inline">
+
+                                   <a class="customer-link text-secondary text-uppercase font-monospace" href="../listprofissionais.aspx">Profissionais</a> </li>
+                               <li class=" list-inline">
+                                   <a class="customer-link text-secondary  text-uppercase font-monospace" href="../listvagas.aspx">Oportunidades</a> </li>
+                               
+                               <li class=" list-inline">
+
+                            <a class="customer-link text-secondary text-uppercase font-monospace" href="../listempresas.aspx">Visualizar Empresas</a> </li>
+
+                               <li class=" list-inline">
+
+                                <a class="customer-link text-secondary text-uppercase font-monospace" href="../Informacoes.aspx">Política & Termos</a> </li>
+                           </ul>
+                       </div>
+
+                       <div class="col text-center  ">
+                           <label class=" customer-link mb-1 fs-5 text-uppercase font-monospace ">Páginas</label>
+                           <ul class="  list-group mb-1  ">
+                               <li class=" list-inline">
+
+                                  <a class="customer-link text-secondary text-uppercase font-monospace" href="../default.aspx">Home</a> </li>
+                               
+                               <li class=" list-inline">
+
+                                  <a class="customer-link text-secondary   text-uppercase font-monospace" href="../Sobre.aspx">Sobre</a> </li>
+                               <li class=" list-inline">
+
+                              <a class="customer-link   text-secondary text-uppercase font-monospace" href="../Cadastro.aspx">Cadastro</a></li>
+                               <li class=" list-inline">
+                            <a class="customer-link  text-secondary text-uppercase font-monospace" href="../autenticacao.aspx">Login</a></li>
+                           </ul>
+                       </div> 
+
+
+                   </div>
+
+                
+                   <h4 style="text-align: center; font-size: 10px;">© 2021 <span class="nome-empresa"></span></h4>
+               </div>
+           </div>
+       </div>
+   </footer>
+            </div>
+
+    <script src="../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../Scripts/GlobalJS.js"></script>
+    <script src="../Scripts/jquery.mask.min.js"></script>
+    <script src="../Scripts/js/bootstrap.min.js"></script>
+    <script src="../Scripts/moment/moment.min.js"></script>
+        <script src="../Scripts/moment/moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/pt-br.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js" integrity="sha512-vUJTqeDCu0MKkOhuI83/MEX5HSNPW+Lw46BA775bAWIp1Zwgz3qggia/t2EnSGB9GoS2Ln6npDmbJTdNhHy1Yw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"  />
+        
+
+        </form> 
+</body>
+</html>

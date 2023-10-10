@@ -1,0 +1,6 @@
+C:\Users\medei\source\repos\project\FW.DTO\bin\Release\Chateau.DTO.dll
+C:\Users\medei\source\repos\project\FW.DTO\bin\Release\Chateau.DTO.pdb
+C:\Users\medei\source\repos\project\FW.DTO\obj\Release\FW.DTO.csproj.AssemblyReference.cache
+C:\Users\medei\source\repos\project\FW.DTO\obj\Release\FW.DTO.csproj.CoreCompileInputs.cache
+C:\Users\medei\source\repos\project\FW.DTO\obj\Release\Chateau.DTO.dll
+C:\Users\medei\source\repos\project\FW.DTO\obj\Release\Chateau.DTO.pdb
