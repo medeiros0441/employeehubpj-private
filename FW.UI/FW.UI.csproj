@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
@@ -268,6 +271,7 @@
     <Content Include="ascx\RptVagas.ascx" />
     <Content Include="ascx\MenuCliente.ascx" />
     <Content Include="ascx\PesquisaFiltro.ascx" />
+    <Content Include="GlobalServices.asmx" />
     <Content Include="pages\Autenticacao.aspx" />
     <Content Include="pages\Cadastro.aspx" />
     <Content Include="Cliente\curriculo\Curriculo_Profissional.aspx" />
@@ -2146,7 +2150,9 @@
     <Content Include="Imagens\objetos-empresa\5.eps" />
     <Content Include="Imagens\objetos-empresa\psd-logo-black-whiter.psd" />
     <None Include="Properties\PublishProfiles\EmployeeHubPJ - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\EmployeeHubPJ - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\EmployeeHubPJ - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\EmployeeHubPJ - Web Deploy1.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -2330,6 +2336,10 @@
     </Compile>
     <Compile Include="ascx\PesquisaFiltro.ascx.designer.cs">
       <DependentUpon>PesquisaFiltro.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalServices.asmx.cs">
+      <DependentUpon>GlobalServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="pages\Autenticacao.aspx.cs">
       <DependentUpon>Autenticacao.aspx</DependentUpon>

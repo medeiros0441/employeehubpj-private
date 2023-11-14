@@ -104,22 +104,23 @@ namespace FW.BLL
             {
                 TipoUserDTO.StatusTu = true;
                 int id_clienteR = ClienteDAL.Cadastrar(TipoUserDTO);
+
                 TipoUserDTO.FkClienteTu = id_clienteR;
                 TipoUserDAL.Cadastrar_Cliente(TipoUserDTO);
-                TipoUserDTO = TipoUserDAL.AutenticarEmail(TipoUserDTO);
+                TipoUserDTO TipoUserDTO_retorno = TipoUserDAL.AutenticarEmail(TipoUserDTO);
 
-                if (TipoUserDTO.CodigoTu == 2)
+                if (TipoUserDTO_retorno.CodigoTu == 2)
                 {
                     ProfissionalDTO.FkClienteTu = id_clienteR;
-                    ProfissionalDTO.FkTipouserPf = TipoUserDTO.IdTipouser;
+                    ProfissionalDTO.FkTipouserPf = TipoUserDTO_retorno.IdTipouser;
                     int id_profissional = ProfissionalDAL.Cadastrar(ProfissionalDTO);
                     ProfissionalDTO.IdProfissional = id_profissional;
                     ClienteTemporario.InfoCliente = ProfissionalDTO;
-                }
-                if (TipoUserDTO.CodigoTu == 3)
+                }else
+                if (TipoUserDTO_retorno.CodigoTu == 3)
                 {
                     EmpresaDTO.FkClienteTu = id_clienteR;
-                    EmpresaDTO.FkTipouserEp = TipoUserDTO.IdTipouser;
+                    EmpresaDTO.FkTipouserEp = TipoUserDTO_retorno.IdTipouser;
                     int id_empresa_R =  EmpresaDAL.Cadastrar(EmpresaDTO);
                     EmpresaDTO.IdEmpresa = id_empresa_R;
                     ClienteTemporario.InfoCliente = EmpresaDTO;
@@ -129,10 +130,22 @@ namespace FW.BLL
 
                 HistoricoDTO.FkClienteHt = id_clienteR;
                 HistoricoDAL.Cadastrar_Inclusao(HistoricoDTO);
+                ProcessadorBLL processadorBLL = new ProcessadorBLL();
+                processadorBLL.Cadastro(id_clienteR, TipoUserDTO.PrimeiroNomeCl, TipoUserDTO.EmailCl);
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao cadastrar Cliente" + ex.Message);
+                LogBLL logBLL = new LogBLL();
+                LogDTO logDTO = new LogDTO
+                {
+                    NivelGravidadeLg = "grave",
+                    DescricaoSistemaLg = ex.Message,
+                    FkSessaoLg = Sessao.SessaoDTO.IdSessao,
+                    DadosAdicionaisLg = "Erro ao excutar ClienteBLL  metodo Cadastrar_Cliente.." + ex.ToString(),
+                };
+                logBLL.CadastrarLog(logDTO);
+
+                throw new Exception("Erro ao cadastrar Cliente BLL" + ex.ToString());
             }
         }
 

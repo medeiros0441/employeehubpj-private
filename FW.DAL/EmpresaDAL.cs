@@ -19,13 +19,13 @@ namespace FW.DAL
             {
                 Conectar();
                 cmd = new SqlCommand("INSERT INTO tb_Empresa(numero_cnpj_EP, nome_fantasia_EP, razao_social_EP, date_time_termos_EP, date_time_privacidade_EP, date_time_insert_EP, date_abertura_EP, fk_tipouser_EP) OUTPUT INSERTED.id_empresa VALUES (@v1,@v2,@v3,@v4,@v5,@v6,@v7,@v8)", conn);
-                cmd.Parameters.AddWithValue("@v1", empresaDTO.NumeroCnpjEp);
-                cmd.Parameters.AddWithValue("@v2", empresaDTO.NomeFantasiaEp);
-                cmd.Parameters.AddWithValue("@v3", empresaDTO.RazaoSocialEp);
+                cmd.Parameters.AddWithValue("@v1",  DBNull.Value);
+                cmd.Parameters.AddWithValue("@v2", DBNull.Value);
+                cmd.Parameters.AddWithValue("@v3",  DBNull.Value);
                 cmd.Parameters.AddWithValue("@v4", empresaDTO.DateTimeTermosEp = DATA_HORA_BR.Data_Hora);
                 cmd.Parameters.AddWithValue("@v5", empresaDTO.DateTimePrivacidadeEp = DATA_HORA_BR.Data_Hora);
                 cmd.Parameters.AddWithValue("@v6", empresaDTO.DateTimeInsertEp = DATA_HORA_BR.Data_Hora);
-                cmd.Parameters.AddWithValue("@v7", empresaDTO.DateAberturaEp);
+                cmd.Parameters.AddWithValue("@v7", DBNull.Value);
                 cmd.Parameters.AddWithValue("@v8", empresaDTO.FkTipouserEp);
 
                 int idGerado = (int)cmd.ExecuteScalar();

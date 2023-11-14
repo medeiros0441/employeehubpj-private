@@ -86,7 +86,7 @@
                                 <div class="mb-2 mx-auto  col-12"  >
                                             <asp:Label runat="server" ID="lblArquivo" class="form-label font-monospace">Selecione o Curriculo em PDF</asp:Label>
                                           <asp:Label runat="server" ID="name_file" class="form-label font-monospace"></asp:Label>
-                              <asp:FileUpload runat="server" class="File_doc d-none" ID="File_Doc" TabIndex="2" accept=".doc,.pdf"  />
+                              <asp:FileUpload runat="server" class="File_doc d-none" ID="File_Doc" TabIndex="2" accept=".pdf,.doc,.docx"  />
     
                                    <button type="button" class="btn btn-sm     btn-outline-customer rounded-3 btn-buscar float-end "  id="fileButton">Buscar</button>
                                                                     </div>

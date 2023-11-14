@@ -21,6 +21,7 @@ namespace FW.UI.ascx
 
         public void FiltroVaga(List<VagaDTO>  ListaDeVagas)
         {
+            PlTitle.Visible =true;
             Default Master = Page.Master as Default;
             if (ListaDeVagas != null && ListaDeVagas.Count > 0)
             {

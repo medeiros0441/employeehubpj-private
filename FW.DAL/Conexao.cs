@@ -420,6 +420,14 @@ namespace FW.DAL
                 { "Fk_cliente_TU", "FkClienteTu" },
                 { "date_time_insert_TU", "DateTimeInsertTu" },
                 { "date_time_update_TU", "DateTimeUpdateTu" },
+ 	// Configurações
+    { "id_configuracao", "IdConfiguracao" },
+    { "fk_tipouser_cfc", "FkTipoUserCfc" },
+    { "configuracao_type_cfc", "TipoConfiguracaoCfc" },
+    { "configuracao_desc_cfc", "DescricaoConfiguracaoCfc" },
+    { "configuracao_value_cfc", "ValorConfiguracaoCfc" },
+    { "date_time_insert_cfc", "DateTimeInsertCfc" },
+    { "date_time_update_cfc", "DateTimeUpdateCfc" },
                 // empresa
                 { "id_empresa", "IdEmpresa" },
                 { "numero_cnpj_EP", "NumeroCnpjEp" },

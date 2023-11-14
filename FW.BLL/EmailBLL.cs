@@ -216,7 +216,7 @@ namespace FW.BLL
                     MailMessage email = new MailMessage
                     {
                         // Remetente
-                        From = new MailAddress("medeiros0441@gmail.com", "CHATEAU DU PET")
+                        From = new MailAddress(smtpUsername, "Employee Hub PJ")
                     };
 
                     // Destinatário

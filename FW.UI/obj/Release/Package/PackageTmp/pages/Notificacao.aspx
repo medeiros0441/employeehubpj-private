@@ -13,7 +13,8 @@
 
 
     <div class="list-group      w-auto ">
- <asp:LinkButton OnClick="Btn_abrir_notificacao_Click" runat="server" ID="Btn_abrir_notificacao" CssClass="bg-light list-group  btn border rounded-2  list-group-item w-auto my-1  " aria-current="true" CommandArgument='<%# Eval("IdNotificacao") %>'>
+ <asp:LinkButton OnClick="Btn_abrir_notificacao_Click" runat="server" ID="Btn_abrir_notificacao" CssClass="bg-light list-group  btn border rounded-2  list-group-item w-auto my-1  " aria-current="true" 
+CommandArgument='<%# Eval("IdNotificacao") %>'>
     
      <div class="toast-header">
      <img src="../Imagens/objetos-empresa/logo-back.png" class="bi rounded me-2" width="30" height="30"  />
@@ -30,7 +31,7 @@
 
     <asp:panel runat="server" ID="not_notificacao" Visible="false">
 
-        <asp:Image runat="server" ID="img_not_notificacao"  ImageUrl="~/Imagens/Undraw/undraw_at_work_re_qotl.svg" CssClass="mx-auto " Width="100" Height="100" />
+        <asp:Image runat="server" ID="img_not_notificacao"  ImageUrl="../Imagens/Undraw/undraw_at_work_re_qotl.svg" CssClass="mx-auto " Width="100" Height="100" />
     </asp:panel>
     <asp:panel runat="server" ID="panel_mensagem" CssClass="mx-auto " Visible="false">
         

@@ -10,7 +10,7 @@
             <a class="blog-header-logo customer-link text-light nome-empresa" href="default.aspx"></a>
         </div>
         <div class="col d-flex justify-content-end align-items-center p-0">
-            <a class="text-muted  border-0   p-1     " onclick="open_filtro()" id="BtnFiltro">
+            <a class="text-muted  border-0   p-1     " onclick="display_objetos('Filtro_container','BtnFiltro')" id="BtnFiltro">
                 <svg class="bi text-light " width="15" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <use href="../Imagens/icones/bootstrap-icons.svg#search"></use></svg>
             </a>
@@ -18,11 +18,11 @@
                                     <svg class="bi color-laranja " width="20" height="25" viewBox="0 0 24 24"   fill="currentColor"><use href="../Imagens/icones/bootstrap-icons.svg#person"></use></svg>
             </asp:LinkButton>
             <asp:Panel runat="server" Visible="false" ID="MenuClienteBtns" class=" justify-content-end p-0 m-0  text-end col-auto d-inline-flex float-end order-3    ">
-                <a id="BtnFecharMenu" onclick="FecharMenu()" clientidmode="Static" causesvalidation="false" class="BtnFecharMenu d-none d-md-block btn  border-0  p-1  ">
+                <a id="BtnFecharMenu" onclick="FecharMenu()" clientidmode="Static" causesvalidation="false" class="BtnFecharMenu d-none d-md-none  btn  border-0  p-1  ">
                     <svg class="bi text-light " width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <use href="../Imagens/icones/bootstrap-icons.svg#box-arrow-in-up"></use></svg>
                 </a>
-                <a onclick="AbrirMenu()" clientidmode="Static" class="   btn d-block d-md-none border-0 p-1  " causesvalidation="false" id="BtnAbrirMenu">
+                <a onclick="AbrirMenu()" clientidmode="Static" class="   btn d-block  d-md-none  border-0 p-1  " causesvalidation="false" id="BtnAbrirMenu">
                     <svg class="bi text-light   " width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <use href="../Imagens/icones/bootstrap-icons.svg#box-arrow-down"></use></svg>
                 </a>

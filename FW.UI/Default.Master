@@ -19,7 +19,7 @@
     <link href="Scripts/GlobalCSS.css" rel="stylesheet" />
     <title>Employee PJ</title>
     <meta name="google-site-verification" content="XUzzJvZ6zUITWhYr535j0pAS1VqahU9hZtolWrT_kNE" />
-    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jwt-decode/2.2.0/index.min.js"></script> 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XW31J69FD"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -29,13 +29,12 @@
      <script src="../Scripts/jquery-3.6.0.min.js"></script>
      
  <script src="../Scripts/jquery.mask.min.js"></script>
- <script src="../Scripts/js/bootstrap.min.js"></script>
+ 
  <script src="../Scripts/moment/moment.min.js"></script>
  <script src="../Scripts/moment/moment.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/pt-br.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js" integrity="sha512-vUJTqeDCu0MKkOhuI83/MEX5HSNPW+Lw46BA775bAWIp1Zwgz3qggia/t2EnSGB9GoS2Ln6npDmbJTdNhHy1Yw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+ 
+ <script src="../Scripts/js/bootstrap.min.js"></script>
     <form id="form1" runat="server">
         <div class="wrapper   ">
             <div class="  content ">
@@ -59,7 +58,6 @@
                 <div class="container-fluid  p-0 mx-0  row"  >
 
                     
-
                     <div id="container_loading" class="conteudo-temporario-oculto container-fluid  p-0 m-0">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
@@ -75,9 +73,10 @@
 
         <script src="../Scripts/GlobalJS.js"></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7884145343563279" crossorigin="anonymous"></script>
+  <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" EnablePartialRendering="true" runat="server"></asp:ScriptManager>
 
         <script src="https://accounts.google.com/gsi/client" async defer></script>
-        <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" EnablePartialRendering="true" runat="server"></asp:ScriptManager>
+      
 
     </form>
 

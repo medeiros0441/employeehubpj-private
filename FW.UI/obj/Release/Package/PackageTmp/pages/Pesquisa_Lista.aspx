@@ -5,7 +5,7 @@
         <script>
 
             window.onload = function () {
-                open_filtro();
+                display_objetos('Filtro_container', 'BtnFiltro');
             };
 
         </script>
@@ -27,8 +27,8 @@
      <asp:Repeater ID="rptPro3" runat="server">
 
       <ItemTemplate>
-                  <asp:LinkButton CssClass="border  rounded-3    text-decoration-none  mx-3 col-3   mx-3 text-truncate  col-profissional" runat="server" OnClick="Btn_sessao_Click" ID="Btn_sessao" class="btn btn-secondary"  CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IdCliente") %>' >
-            <img src="<%# DataBinder.Eval(Container.DataItem, "CaminhoFotoCl").ToString() %>" onerror="this.onerror=null; this.src='Cliente/Foto_Cliente/undraw_resume_folder_re_e0bi.svg'" class="bd-placeholder-img mx-auto  flex-shrink-0 me-3 rounded" width="75" height="75" alt="...">
+                  <asp:LinkButton CssClass=" text-center  rounded-3    text-decoration-none  mx-3 col-3   mx-3 text-truncate  col-profissional" runat="server" OnClick="Btn_sessao_Click" ID="Btn_sessao" class="btn btn-secondary"  CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IdCliente") %>' >
+            <img src="<%# DataBinder.Eval(Container.DataItem, "CaminhoFotoCl").ToString() %>" onerror="this.onerror=null; this.src='../Cliente/Foto_Cliente/undraw_resume_folder_re_e0bi.svg'" class="bd-placeholder-img mx-auto  flex-shrink-0 me-3 rounded" width="75" height="75" alt="...">
         <strong class="d-block text-gray-dark  "><%# DataBinder.Eval(Container.DataItem, "PrimeironomeCl") %></strong>
     <p class="pb-3 mb-0 small lh-sm count-text-70  ">
       <%# DataBinder.Eval(Container.DataItem, "BiografiaCl") %>
@@ -54,12 +54,12 @@
       <asp:Label runat="server" ID="lbl_qunt_Clientes" CssClass="  text-dark font-monospace  float-end   fw-bold" >Quant:  </asp:Label> </div>
 
                
-<div  class="    card-body row  p-3 container" >
+<div  class=" mx-auto    card-body row  p-3 container" >
       
              <asp:Repeater ID="rpt_cliente" runat="server">
             <itemtemplate>
-                <asp:LinkButton CssClass="border  rounded-3 mx-sm-3 mx-auto  shadow  col-11   text-decoration-none my-2        col-md-6 col-lg-4 " runat="server" OnClick="Btn_sessao_Click" ID="LinkButton1" class="btn btn-secondary"  CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IdCliente") %>' >
-        <asp:Image  runat="server" class="bd-placeholder-img mx-auto rounded-circle" onerror="this.onerror=null; this.src='Cliente/Foto_Cliente/undraw_resume_folder_re_e0bi.svg'" width="140" height="140"   ImageUrl='<%# DataBinder.Eval(Container.DataItem, "CaminhoFotoCl").ToString() %>'   role="img"      />
+                <asp:LinkButton CssClass=" text-center mx-auto    col-11   text-decoration-none my-2        col-md-6 col-lg-4 " runat="server" OnClick="Btn_sessao_Click" ID="LinkButton1" class="btn btn-secondary"  CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IdCliente") %>' >
+        <asp:Image  runat="server" class="bd-placeholder-img mx-auto rounded-circle" onerror="this.onerror=null; this.src='../Cliente/Foto_Cliente/undraw_resume_folder_re_e0bi.svg'" width="140" height="140"   ImageUrl='<%# DataBinder.Eval(Container.DataItem, "CaminhoFotoCl").ToString() %>'   role="img"      />
         <h2 class=" font-monospace mx-auto "><%# DataBinder.Eval(Container.DataItem, "PrimeironomeCl") %></h2>
         <p class="cont-text-150 font-monospace mx-auto"> <%# DataBinder.Eval(Container.DataItem, "BiografiaCl") %></p>
     </asp:LinkButton> 

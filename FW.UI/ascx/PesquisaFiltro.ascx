@@ -6,36 +6,42 @@
                             <svg class="bi  me-2  text-dark" width="20" height="20" role="img" fill="currentColor">
                                 <use href="../Imagens/icones/bootstrap-icons.svg#sliders"></use></svg>
                             <asp:Label runat="server" Text="Filtro" CssClass="text-dark font-monospace  fw-bold"></asp:Label>
-                            <button tabindex="1" id="btn_close_filtro" onclick="close_filtro()" type="button" class=" p-0 btn float-end text-dark    ">
+                            <button tabindex="1" id="btn_close_filtro" onclick="display_objetos('BtnFiltro','Filtro_container')" type="button" class=" p-0 btn float-end text-dark    ">
                                 <svg class="bi   text-dark" width="20" height="20" role="img" fill="currentColor">
                                     <use href="../imagens/icones/bootstrap-icons.svg#x-lg"></use></svg>
                             </button>
                         </div>
 
                         <div class="card-body     ">
-                            <div class="  justify-content-between align-items-center font-monospace  text-uppercase d-inline-flex p-0 col-12 ">
+                        <div class="d-flex justify-content-between align-items-center font-monospace text-uppercase p-0 col-12">
+    <button runat="server" type="button" onclick="Fechando_cliente()" id="Button_Abrir_campoOportunidade"
+        class="col-md-4 border-0 col-lg-5 text-truncate btn   text-center"
+        data-bs-toggle="collapse" data-bs-target="#pn_oportunidade_2" aria-expanded="false" tabindex="2">
+        <svg class="bi img-fluid me-2 text-dark" width="20" height="20" fill="currentColor">
+            <use href="../Imagens/icones/bootstrap-icons.svg#columns-gap" />
+        </svg>
+        Oportunidades
+    </button>
+    <button runat="server" type="button" onclick="Fechando_Oportunidades()" id="btn_Buscar_Vagas"
+        class="col-md-4 col-lg-5 text-truncate btn  border-0 text-center"
+        data-bs-toggle="collapse" data-bs-target="#pn_cliente_2" aria-expanded="false" tabindex="3">
+        <svg class="bi img-fluid me-2 text-dark" width="20" height="20" fill="currentColor">
+            <use href="../Imagens/icones/bootstrap-icons.svg#people" />
+        </svg>
+        Clientes
+    </button>
+</div>
 
-                                <button runat="server" type="button" onclick="Fechando_cliente()" id="Button_Abrir_campoOportunidade" class="col  float-start  text-truncate btn     text-center "
-                                    data-bs-toggle="collapse" data-bs-target="#pn_oportunidade_2" aria-expanded="false" tabindex="2">
-                                    <svg class="bi img-fluid  me-2  text-dark  " width="20" height="20" fill="currentColor">
-                                        <use href="../Imagens/icones/bootstrap-icons.svg#columns-gap" />
-                                    </svg>
-                                    Oportunidades 
-                                </button>
-                                <button runat="server" type="button" onclick="Fechando_Oportunidades()" id="btn_Buscar_Vagas" tabindex="3" class="col  float-end text-truncate btn     text-center "
-                                    data-bs-toggle="collapse" data-bs-target="#pn_cliente_2" aria-expanded="false">
-                                    <svg class="bi img-fluid  me-2  text-dark  " width="20" height="20" fill="currentColor">
-                                        <use href="../Imagens/icones/bootstrap-icons.svg#people" />
-                                    </svg>
-                                    Clientes
-                                </button>
-                            </div>
-                            <div class="collapse multi-collapse multi-collapse_Filtro collapse-horizontal col-12 my-2   row g-1 pn_oportunidade_2" tabindex="-1" id="pn_oportunidade_2">
+  <div class="collapse multi-collapse multi-collapse_Filtro collapse-horizontal col-12 my-2   row g-1 pn_oportunidade_2" tabindex="-1" id="pn_oportunidade_2">
 
                                 <div class="col-12 col-sm-8 col-md-12 form-floating mb-2  " id="campo_NomeVaga">
-                                    <asp:TextBox CssClass="form-control" ID="txtTitulo_buscar" runat="server" TabIndex="1" placeholder="e" MaxLength="100" />
-                                    <label id="lblTitulo_buscar" for="txtTitulo_buscar" class="small text-secondary font-monospace">Título</label>
+                           
+         <asp:TextBox CssClass="form-control SugestaoText" ID="txtTitulo_buscar"  data-tipo="NomeVaga" runat="server" TabIndex="1" placeholder="e" MaxLength="100"/>
+            <label id="lblTitulo_buscar" for="txtTitulo_buscar" class="small text-secondary font-monospace">Título</label>
+ 
+ 
                                 </div>
+  
                                 <div class="   col-sm-4 col-md-4 form-floating  mb-2" id="campo_TipoRegistro">
                                     <asp:DropDownList ID="dllRegistro_pesquisa" runat="server" CssClass=" form-select-sm form-select text-secondary small" TabIndex="2">
                                         <asp:ListItem Value="0" Text="Selecione" />
@@ -89,13 +95,14 @@
                             <div class="collapse multi-collapse collapse-horizontal col-12 my-2  row g-1 pn_cliente_2" tabindex="-1" id="pn_cliente_2">
                                 <h1 class=" fw-bold font-monospace ms-1 fs-6 small">Procurar pessoas</h1>
 
-                                <div class="mb-2 col-lg-6 form-floating    " id="campo_nome">
-                                    <asp:TextBox placeholder="nome" CssClass="form-control" ID="txtNome_pesquisa" runat="server" TabIndex="1" MaxLength="100" />
-                                    <label id="lblNome" class="text-secondary small" for="txtNome">Nome</label>
+                                
+                                 <div class="mb-2 col-lg-6 form-floating " >
+                                  <asp:TextBox CssClass="form-control SugestaoText" data-tipo="NomeCliente" ID="txtNome_pesquisa" runat="server" TabIndex="1" placeholder="" MaxLength="100" /> 
+ <label id="lblNome"  class="text-secondary small" for="txtNome_pesquisa"   >Nome</label>
                                 </div>
 
                                 <div class="mb-2 col-lg-6 form-floating " id="campo_usuario">
-                                    <asp:TextBox runat="server" CssClass="form-control " placeholder="user" ID="txtUsuario_pesuisa" TabIndex="2" />
+                                    <asp:TextBox runat="server" CssClass="form-control SugestaoText" data-tipo="usuario" placeholder="user" ID="txtUsuario_pesuisa" TabIndex="2" />
                                     <label class="text-secondary small" for="txtUser">Usuario</label>
                                 </div>
                                 <div class="mb-2 form-floating col-sm-6    " id="campo_Formacao">
@@ -121,11 +128,11 @@
                                 </div>
                                 <div class="col-sm-6 form-floating">
                                     <asp:TextBox runat="server" CssClass="form-control   form-control-sm  " ID="TextBox3" placeholder="UF" TabIndex="3" />
-                                    <label for="txtUF" class="text-secondary small">UF</label>
+                                    <label for="txtUF" class="text-secondary small  SugestaoText" data-tipo="Uf" >UF</label>
                                 </div>
 
                                 <div class="col-sm-6   form-floating">
-                                    <asp:TextBox runat="server" CssClass="form-control   form-control-sm   " ID="TextBox4" placeholder="Cidade" TabIndex="6" />
+     <asp:TextBox runat="server" CssClass="form-control   form-control-sm   SugestaoText" data-tipo="Cidade" ID="TextBox4" placeholder="Cidade" TabIndex="6" />
                                     <label for="txtCidade" class="text-secondary small">Cidade</label>
                                 </div>
                                 <div class="col  mt-3 d-flex">
@@ -135,7 +142,78 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
+
+<script>
+$(function () {
+    $(".SugestaoText").each(function () {
+        var txtCampo = $(this);
+	var tipo = txtCampo.data("tipo").toString();
+        var suggestionsDiv = $("<div class='suggestionsDiv dropdown-menu w-100' style='display: none; position: absolute;'></div>");
+        txtCampo.after(suggestionsDiv);
+
+        txtCampo.keyup(function () {
+            var prefix = txtCampo.val();
+            var methodName = "GetSugestoes"; // Nome do método a ser chamado no servidor
+            var params = { prefixo: prefix, tipo:tipo  }; // Parâmetros a serem enviados para o servidor
+
+            callServerMethod(methodName, params, function (data) {
+                handleSuccess(data, suggestionsDiv, txtCampo);
+            }, function (result) {
+                handleError(result);
+            });
+        });
+// Adicione um manipulador de eventos de clique no documento inteiro
+    $(document).on('click', function (e) {
+        var clickedElement = $(e.target);
+        
+        // Verifique se o elemento clicado não é uma parte do suggestionsDiv ou do txtCampo
+        if (!clickedElement.closest('.suggestionsDiv').length && !clickedElement.closest('.SugestaoText').length) {
+            suggestionsDiv.hide();
+        }
+    });
+    });
+
+   
+});
+
+
+function handleSuccess(data, suggestionsDiv, txtCampo) {
+    suggestionsDiv.empty();
+
+    if (data.length > 0) {
+        data.forEach(function (item) {
+            var suggestion = $("<div class='suggestion px-2'>" + item + "</div>");
+            suggestionsDiv.append(suggestion);
+
+            suggestion.click(function () {
+                txtCampo.val($(this).text());
+                suggestionsDiv.hide();
+            });
+
+            suggestion.hover(
+                function () {
+                    $(this).css("background-color", "#e0e0e0");
+                },
+                function () {
+                    $(this).css("background-color", "");
+                }
+            );
+        });
+        suggestionsDiv.show();
+    } else {
+        suggestionsDiv.hide();
+    }
+}
+
+function handleError(result) {
+    if (result.status === 404) {
+        console.log("Erro 404: Recurso não encontrado.");
+    } else if (result.status === 500) {
+        console.log("Erro 500: Erro interno do servidor.");
+    } else {
+        console.log("Erro desconhecido: " + result.statusText);
+    }
+}
+</script>
 

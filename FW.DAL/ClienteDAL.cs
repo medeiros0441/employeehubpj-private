@@ -19,7 +19,7 @@ namespace FW.DAL
                 cmd = new SqlCommand(@"INSERT INTO TB_CLIENTE 
                 (nome_completo_CL, primeironome_CL, sobrenome_CL, email_CL, usuario_CL, senha_CL, data_Nascimento_CL, sexo_CL,Numero_Telefone_Cl, caminho_foto_CL, status_CL, date_time_insert_CL, status_verificacao_CL,saldo_atual_cl) 
                 VALUES 
-                (@nome_completo_CL, @primeironome_CL, @sobrenome_CL, @email_CL, @usuario_CL, @senha_CL, @data_Nascimento_CL, @sexo_CL,@telefone, @caminho_foto_CL, @status_CL, @date_time_insert_CL, @status_verificacao_CL,@saldo);
+                (@nome_completo_CL, @primeironome_CL, @sobrenome_CL, @email_CL, @usuario_CL, @senha_CL, CONVERT(DATE, @data_Nascimento_CL, 103), @sexo_CL,@telefone, @caminho_foto_CL, @status_CL, @date_time_insert_CL, @status_verificacao_CL,@saldo);
                 SELECT SCOPE_IDENTITY();", conn);
                 cmd.Parameters.AddWithValue("@nome_completo_CL", objCad.NomeCompletoCl =  objCad.PrimeiroNomeCl + " " + objCad.SobrenomeCl);
                 cmd.Parameters.AddWithValue("@primeironome_CL", objCad.PrimeiroNomeCl);
@@ -41,7 +41,7 @@ namespace FW.DAL
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao cadastrar cliente! " + ex.Message);
+                throw new Exception("Erro ao cadastrar cliente! " + ex.ToString());
             }
             finally
             {

@@ -3,14 +3,16 @@ using FW.DTO;
 using System;
 using System.Web.UI.WebControls;
 
+using System.Linq;
+using System.Globalization;
 namespace FW.UI
 {
     public partial class Cadastro :  System.Web.UI.Page
     {
         protected internal ClienteDTO ClienteDTO { get; set; } = new ClienteDTO();
         protected internal ClienteBLL ClienteBLL { get; set; } = new ClienteBLL();
-        protected internal ClienteBLL ObjetoCompartilhado { get; set; } = new ClienteBLL();
         protected EmailBLL EmailBLL = new EmailBLL();
+        TipoUserDTO TipoUserDTO = new TipoUserDTO();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -39,42 +41,9 @@ namespace FW.UI
             }
 
         }
-
-        public ClienteDTO VerificandoUser()
-        {
-
-        
-
-            ClienteDTO.UsuarioCl = txtUser.Text.Trim();
-            ClienteDTO = ClienteBLL.ConsultarUsuario(ClienteDTO);
-            return ClienteDTO;
-        }
-
-        public void VerificandoTelefone()
-        {
-            ClienteDTO = null;
-            ClienteDTO = ClienteBLL.ConsultarTelefone(txtTelefone.Text);
-
-            if (ClienteDTO.NumeroTelefoneCl == null)
-            {
-                verificacao.Visible = false;
-                verificacao2.Visible = false;
-                verificacao3.Visible = true;
-
-            }
-            else
-            {
-                Master.MensagemJS("Erro","Telefone já cadastrado!");
-                verificacao.Visible = false;
-                verificacao2.Visible = true;
-                verificacao3.Visible = false;
-
-            }
-        }
-
+ 
         public void Insert_Cliente()
         {
-            TipoUserDTO TipoUserDTO = new TipoUserDTO();
 
             try
             {
@@ -85,7 +54,16 @@ namespace FW.UI
                 TipoUserDTO.UsuarioCl = txtUser.Text;
                 TipoUserDTO.SenhaCl = Sessao.Senha_Cliente;
                 TipoUserDTO.NumeroTelefoneCl = txtTelefone.Text;
-                TipoUserDTO.DataNascimentoCl = Convert.ToDateTime(txtData.Text);
+                if (DateTime.TryParseExact(txtData.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dataNascimento))
+                {
+                       TipoUserDTO.DataNascimentoCl = dataNascimento;
+                }
+                else
+                {
+                    // A conversão falhou, trate o erro aqui.
+                    Master.MensagemJS("Erro", "Formato de data inválido.");
+                    return;
+                }
                 if (DDLSexo.SelectedItem.ToString() == "Masculino")
                 {
                     TipoUserDTO.CaminhoFotoCl = @"../Cliente/Foto_Cliente/undraw_male_avatar_323b.svg";
@@ -185,32 +163,64 @@ namespace FW.UI
         {
             if (DDLSexo.SelectedItem.ToString() != "Selecione uma opção")
             {
+                ClienteDTO.UsuarioCl = txtUser.Text.Trim();
+                ClienteDTO = ClienteBLL.ConsultarUsuario(ClienteDTO);
 
-                ClienteDTO = VerificandoUser();
+                // Verifica se a propriedade UsuarioCl NÃO é nula ou vazia
+                bool UsuarioExiste = !string.IsNullOrEmpty(ClienteDTO.UsuarioCl);
 
-                if (ClienteDTO.UsuarioCl == null)
-                {
-                    VerificandoTelefone();
-                }
-                else
+                // Se UsuarioExiste for verdadeiro, exibe uma mensagem e encerra a execução
+                if (UsuarioExiste)
                 {
                     verificacao.Visible = false;
                     Master.MensagemJS("Erro", "USUARIO já cadastrado!");
                     verificacao2.Visible = true;
                     verificacao3.Visible = false;
-
+                    return;
                 }
 
+                ClienteDTO = ClienteBLL.ConsultarTelefone(txtTelefone.Text);
+                bool TelefoneExiste = !string.IsNullOrEmpty(ClienteDTO.NumeroTelefoneCl);
 
+                // Se TelefoneExiste for verdadeiro, exibe uma mensagem e encerra a execução
+                if (TelefoneExiste)
+                {
+                    Master.MensagemJS("Erro", "Telefone já cadastrado!");
+                    verificacao.Visible = false;
+                    verificacao2.Visible = true;
+                    verificacao3.Visible = false;
+                    return;
+                }
+                 
+                if (DateTime.TryParseExact(txtData.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dataNascimento))
+                {
+                    // Verificações adicionais para garantir uma data válida
+                    if (dataNascimento.Year < 1950 || dataNascimento.Year > DateTime.Now.Year || dataNascimento.Month < 1 || dataNascimento.Month > 12 || dataNascimento.Day < 1 || dataNascimento.Day > DateTime.DaysInMonth(dataNascimento.Year, dataNascimento.Month))
+                    {
+                        // A data está fora dos limites aceitáveis, trate o erro aqui.
+                        Master.MensagemJS("Erro", "Data de nascimento inválida.");
+                    }
+                    else
+                    {
+                        verificacao.Visible = false;
+                        verificacao2.Visible = false;
+                        verificacao3.Visible = true;
 
+                        TipoUserDTO.DataNascimentoCl = dataNascimento;
+                    }
+                }
+                else
+                {
+                    // A conversão falhou, trate o erro aqui.
+                    Master.MensagemJS("Erro", "Formato de data inválido.");
+                }
             }
             else
             {
                 Master.MensagemJS("Erro", "Selecione uma opção");
             }
-
         }
-        
+
 
 
 
@@ -262,7 +272,7 @@ namespace FW.UI
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/autenticacao.aspx");
+            Response.Redirect("../pages/autenticacao.aspx");
         }
 
         public void Enviandoemail()
@@ -272,12 +282,11 @@ namespace FW.UI
             Sessao.CodigoEmail = Codigoemail.ToString();
             
             string NomeDestinatario = txtNome.Text;
-            string   EmailDestinatario = txtEmail.Text;
-            string Assunto = "Verificação de email";
+            string   EmailDestinatario = txtEmail.Text; 
             string Mensagem = "Olá " + txtNome.Text + " Seu codigo é : " + Codigoemail;
 
 
-               bool status = EmailBLL.Enviando_Email(EmailDestinatario,NomeDestinatario, Assunto, Mensagem);
+               bool status = EmailBLL.Enviando_Email(EmailDestinatario, "Verificação de email", Mensagem,NomeDestinatario);
             if (status)
                 Master.MensagemJS("Sucesso", "E-mail enviado com Sucesso!");
             else
@@ -294,38 +303,7 @@ namespace FW.UI
             PnCadastro.Visible = true;
 
         }
-        public void ValidateDate(object source, ServerValidateEventArgs args)
-
-        {
-
-
-            DateTime dtNascimentoMax = DateTime.Now.AddYears(-10);
-
-            DateTime dtMax = DateTime.Parse("1/1/1973 12:00:00");
-
-
-
-            if (DateTime.TryParse(args.Value, out DateTime dt) == false)
-
-                args.IsValid = false;
-
-
-
-            //Valida se é maior de idade
-
-            if (dt >= dtNascimentoMax)
-
-                args.IsValid = false;
-
-
-
-            //Valida a data para não dar SqlDateTime overflow       
-
-            if (dt <= dtMax)
-
-                args.IsValid = false;
-
-        }
+       
 
     }
 }

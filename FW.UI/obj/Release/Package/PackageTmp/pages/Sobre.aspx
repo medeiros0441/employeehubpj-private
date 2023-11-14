@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Sobre-nós" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Sobre.aspx.cs" Inherits="FW.UI.Sobre" %>
-<%@ MasterType VirtualPath="~/Default.Master" %>
+﻿<%@ Page Title="Sobre-nós" Language="C#" MasterPageFile="../Default.Master" AutoEventWireup="true" CodeBehind="Sobre.aspx.cs" Inherits="FW.UI.Sobre" %>
+<%@ MasterType VirtualPath="../Default.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <style>
@@ -35,8 +35,8 @@
             <div class=" clearfix">
             
       
-           <h1 class="featurette-heading fw-normal lh-1 font-monospace fs-4 fw-bold mnA offcanvas-title" style="color: var(--laranja);font-size:20px">Sobre a Employee Hub PJ</h1>
-         <p class="font-monospace small font-weight-light" style=" font-size:15px">
+           <h1 class="featurette-heading fw-normal lh-1 text-center font-monospace fs-4 fw-bold mnA offcanvas-title" style="color: var(--laranja);font-size:20px">Sobre a Employee Hub PJ</h1>
+         <p class="font-monospace small font-weight-light text-center" style=" font-size:15px">
        A Employee Hub PJ é uma plataforma dedicada a simplificar o processo de busca de oportunidades de emprego e a facilitar a conexão entre profissionais autônomos (PJ) e empresas.
        Nosso compromisso é tornar a jornada de emprego mais eficiente e eficaz, não importa qual seja o seu perfil profissional ou necessidades de contratação.
    </p>
@@ -50,11 +50,11 @@
 Além disso, queremos capacitar as empresas a compartilharem vagas e a acessarem o currículo de profissionais qualificados de forma fácil e eficaz.
    </p>
    <h1 class="font-monospace fs-4 fw-bold mnA offcanvas-title" style="color: var(--laranja);font-size:20px">O Que Fazemos</h1>
-                  <p class="font-monospace small font-weight-light" style=" font-size:10px"> Para Profissionais PJ: Fornecemos uma plataforma intuitiva que permite que profissionais autônomos explorem oportunidades de emprego que atendam às suas habilidades e interesses. Eles podem criar perfis, compartilhar seus currículos e se candidatar a vagas com facilidade.            </p>
-             <p class="font-monospace small font-weight-light" style=" font-size:10px">   Para Empresas: Facilitamos o processo de contratação, permitindo que empresas publiquem vagas, pesquisem candidatos qualificados em nossa base de dados e estabeleçam conexões significativas com profissionais experientes.          </p>
+                  <p class="font-monospace small font-weight-light" style=" font-size:15px"> Para Profissionais PJ: Fornecemos uma plataforma intuitiva que permite que profissionais autônomos explorem oportunidades de emprego que atendam às suas habilidades e interesses. Eles podem criar perfis, compartilhar seus currículos e se candidatar a vagas com facilidade.            </p>
+             <p class="font-monospace small font-weight-light" style=" font-size:15px">   Para Empresas: Facilitamos o processo de contratação, permitindo que empresas publiquem vagas, pesquisem candidatos qualificados em nossa base de dados e estabeleçam conexões significativas com profissionais experientes.          </p>
  
-            <h1 class="font-monospace fs-4 fw-bold mnA offcanvas-title"  style=" font-size:12px">Nossa Visão </h1>
-            <p class="font-monospace small" style=" font-size:15px">
+            <h1 class="font-monospace fs-4 fw-bold mnA offcanvas-title text-center"  style="color: var(--laranja); font-size:12px">Nossa Visão </h1>
+            <p class="font-monospace small text-center" style=" font-size:15px">
                 Acreditamos que a flexibilidade no mercado de trabalho é essencial para o sucesso de profissionais e empresas. Nossa visão é criar um ecossistema onde a colaboração e a conectividade entre os dois lados do mercado de trabalho prosperem. Queremos ser a plataforma de escolha para profissionais PJ que buscam oportunidades diversas e para empresas que buscam talentos excepcionais.
 Na Employee Hub PJ, estamos comprometidos em fornecer uma solução tecnológica de ponta que promova a mobilidade profissional e ajude a preencher a lacuna entre profissionais e empresas. Junte-se a nós nesta jornada de transformação do mercado de trabalho.
             </p>
@@ -63,19 +63,20 @@ Na Employee Hub PJ, estamos comprometidos em fornecer uma solução tecnológica
         <hr class="featurette-divider"/> 
         <div class="row featurette  text-light font-monospace ">
       <div class="col-md-7 order-md-2">
-          <h1 class="fw-bolder lh-2">Samuel medeiros</h1>
-    <h2 class="featurette-heading fw-bolder lh-2" style="color: var(--laranja);font-size:15px" >"Sou protagonista em uma história cujo Deus é o autor"</h2>
-        <p class="lead" style=" font-size:15px">desenvolvedor em .NET com formação técnica em Tecnologia da Informação pelo SENAC/São Miguel Paulista, é a mente criativa por trás da plataforma Employee Hub PJ. Inicialmente, o projeto começou como um simples trabalho escolar,A visão empreendedora de Samuel identificou uma oportunidade de empreendimento passivo enquanto desenvolvia o software. Ele transformou uma ideia acadêmica em uma realidade comercial de sucesso. Siga-o nas redes sociais para conhecer mais sobre suas conquistas e o impacto de sua visão no mercado de trabalho.</p>
-      <a class="text-decoration-none " href="https://www.linkedin.com/in/samuelmedeirosbc/" target="_blank"> 
+          <h1 class=" lh-2 font-monospac">Samuel medeiros</h1>
+    <h2 class="featurette-heading fw-bolder lh-2 font-monospac" style="color: var(--laranja);font-size:15px" >"Sou protagonista em uma história cujo Deus é o autor"</h2>
+        <p class="lead" style=" font-size:15px">Desenvolvedor em .NET com formação técnica em Tecnologia da Informação pelo SENAC é a mente criativa por trás da plataforma Employee Hub PJ. Inicialmente, o projeto começou como um simples trabalho acadêmica, A visão empreendedora de Samuel identificou uma oportunidade de empreendimento enquanto desenvolvia o software. Ele transformou uma ideia acadêmica em uma realidade comercial de sucesso. Siga-o nas redes sociais para conhecer mais sobre suas conquistas e o impacto de sua visão no mercado de trabalho.</p>
+<div class="col-12 text-center" > 
+      <a class="text-decoration-none  " href="https://www.linkedin.com/in/samuelmedeirosbc/" target="_blank"> 
         <svg class="bi me-2   figure-img" width="25" height="25" color="var(--laranja)" fill="currentColor">
       <use href="../imagens/icones/bootstrap-icons.svg#linkedin"></use></svg>
            </a>
       <a class="text-decoration-none " href="https://www.instagram.com/samuel.medeiros.bc/" target="_blank"> 
 
-            <svg class="bi me-2   figure-img" width="25" height="25" color="var(--laranja)" fill="currentColor">
+            <svg class="bi me-2  mx-auto figure-img" width="25" height="25" color="var(--laranja)" fill="currentColor">
       <use href="../imagens/icones/bootstrap-icons.svg#instagram"></use></svg>
            </a>
-
+</div>
       
       </div>
       <div class="col-md-5 order-1 my-1">
@@ -102,14 +103,13 @@ Na Employee Hub PJ, estamos comprometidos em fornecer uma solução tecnológica
                         <div class="form-floating mb-3">
                             <asp:TextBox runat="server" AutoCompleteType="None" ID="txtNome" placeholder="name" CssClass="form-control" />
                             <asp:Label runat="server" Text="Nome" For="txtNome" AssociatedControlID="txtNome" CssClass="form-label  text-secondary" />
-                            <asp:RequiredFieldValidator ID="rfvNome" runat="server" ControlToValidate="txtNome" Display="Dynamic" ErrorMessage="Campo Nome é obrigatório!" ForeColor="red" CssClass=" ms-2  small text-uppercase font-monospace" style=" font-size:5px" />
+                            <asp:RequiredFieldValidator ID="rfvNome" runat="server" ControlToValidate="txtNome" Display="Dynamic" ErrorMessage="Campo Nome é obrigatório!" ForeColor="red" CssClass=" ms-2  small text-uppercase font-monospace" style=" font-size:15px" />
 
                         </div>
                         <div class="form-floating mb-3">
                             <asp:TextBox ID="txtEmail" CssClass="form-control" MaxLength="100" runat="server" placeholder="email" />
                             <asp:Label runat="server" Text="E-mail" AssociatedControlID="txtEmail" for="txtEmail" CssClass="form-label text-secondary" />
-                            <asp:RegularExpressionValidator ID="gevEmailValido" runat="server" ControlToValidate="txtEmail" ErrorMessage="O E-mail é inválido!" Display="Dynamic" ForeColor="red"
-                              ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  CssClass="ms-2 small text-uppercase font-monospace" style=" font-size:15px" />
+                            <asp:RegularExpressionValidator ID="gevEmailValido" runat="server" ControlToValidate="txtEmail" ErrorMessage="O E-mail é inválido!" Display="Dynamic" ForeColor="red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  CssClass="ms-2 small text-uppercase font-monospace" style=" font-size:15px" />
                             <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Campo E-mail é obrigatório" Display="Dynamic" ForeColor="red"  CssClass="ms-2 small text-uppercase font-monospace" style=" font-size:15px" />
                         </div>
                         <div class="form-floating mb-3">

@@ -23,10 +23,7 @@
                                     <li class=" list-inline">
                                         <a class="customer-link text-secondary  text-uppercase font-monospace" href="../pages/listvagas.aspx">Oportunidades</a> </li>
                                     
-                                    <li class=" list-inline">
-
-                                 <a class="customer-link text-secondary text-uppercase font-monospace" href="../pages/listempresas.aspx">Visualizar Empresas</a> </li>
-
+                              
                                     <li class=" list-inline">
 
                                      <a class="customer-link text-secondary text-uppercase font-monospace" href="../pages/Informacoes.aspx">Política & Termos</a> </li>

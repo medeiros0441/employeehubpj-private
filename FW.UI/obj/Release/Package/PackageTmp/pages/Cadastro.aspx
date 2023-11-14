@@ -80,7 +80,6 @@
                                     <label for="txtData">Data de Nascimento </label>
                                 
                                     <asp:RequiredFieldValidator ID="rfvDataN" runat="server" Display="Dynamic" ControlToValidate="txtData" CssClass=" text-uppercase ms-3"  Font-Size="Small" ErrorMessage="Campo Data é obrigatório" ForeColor="red" />
-                            <asp:CustomValidator ID="ctvtxtDataNascimento" runat="server" ErrorMessage="Data inválida"  Display="Dynamic" ForeColor="Red" Font-Size="Small" CssClass="text-uppercase ms-3" ControlToValidate="txtData" Text="Data inválida" OnServerValidate="ValidateDate" ValidationGroup="BtnMeio"  ></asp:CustomValidator>
 
                                     </div>
                             </div>

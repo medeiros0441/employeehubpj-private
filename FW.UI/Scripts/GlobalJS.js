@@ -35,144 +35,7 @@ if (input.is("[spellcheck]") && !input.is(":invalid")) {
 });
 
 
-
-$(function VerificandoImagem() {
-    const exist = document.body.contains(document.querySelector('.Campo_imagem'));
-    if (exist == true) {
-        var objImg = document.querySelector('.img_caminho');
-        var objBtn_Enviar = document.querySelector('.Btn_foto_upload');
-        var objBtn_cortar = document.querySelector('#btn_cortar_imagem');
-        const objFile = document.querySelector('.File_Foto');
-        var preview = document.querySelector('.preview');
-        var objBtn_buscar_img = document.querySelector('#btn_buscar_imagem');
-
  
-
-
-        var redimensionar = $('.preview').croppie({
-            enableExif: true,
-            enableOrientation: true,
-            viewport: { width: 200, height: 200, type: 'square' },
-            boundary: { width: 300, height: 300 },
-        });
-
-        // ação de click no btn_file_Temp
-        objBtn_buscar_img.addEventListener('click', () => {
-            objFile.click();
-        });
-        //execulta ao identificar algo no file
-        objFile.addEventListener('change', function (algoNoFile) {
-             
-            const file = algoNoFile.target.files[0];
-            if (file != null) {
-
-             //   const status = verificando_arquivo(objFile);
-
-                var fileExtension = ['jpeg', 'jpg', 'png'];
-
-                if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                    alerta("Erro", "erro Ao analizar o arquivo, use JPG ou PNG");
-                    removeFileFromFileList(objBtn_buscar_img);
-                    function removeFileFromFileList(index) {
-                        const dt = new DataTransfer()
-                        const input = objFile
-                        const { files } = input
-
-                        for (let i = 0; i < files.length; i++) {
-                            const file = files[i]
-                            if (index !== i)
-                                dt.items.remove(file) // here you exclude the file. thus removing it.
-                        }
-
-                        input.files = dt.files // Assign the updates list
-                    };
-
-                }
-
-                if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) > 0) {
-                    OnSuccess()
-                }
-                function OnSuccess() {
-
-                        // btn imagen off 
-                        objBtn_buscar_img.classList.add("d-none")
-                        const reader = new FileReader();
-                        objImg.classList.add("d-none");
-                        preview.classList.remove("d-none");
-                        objBtn_cortar.classList.remove("d-none");
-                        objBtn_Enviar.classList.add("d-none");
-                        reader.onload = function (e) {
-                            redimensionar.croppie('bind', {
-                                url: e.target.result
-                            });
-                            objBtn_cortar.classList.remove('disabled');
-                        }
-                        reader.readAsDataURL(file);
-                        $('#btn_cortar_imagem').on('click', function () {
-                            redimensionar.croppie('result', {
-                                type: 'canvas',// yipo de arquivos permitidos 
-                                size: 'viewport',//o tamanho da imagem cortada
-                                quality: 0, format: 'png',
-
-                            }).then(function (img) {
-                                // colocando imagen no campo img  
-                                //objImg.src = img;
-                                preview.classList.add("d-none");
-                                //  deixando on a visibilidade da imagen cortada.
-                                objImg.classList.remove("d-none");
-                                // preciso altearar o arquivo do file uma vez que já estou com a foto cortada. 
-                                // convertendo obj data para obj imagem
-                                function dataURLtoFile() {
-                                    dataurl = img;
-                                    filename = `imag_cortada_${nume}.png`;
-                                    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-                                        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-                                    while (n--) {
-                                        u8arr[n] = bstr.charCodeAt(n);
-                                    }
-                                    return Imagem_cortada = new File([u8arr], filename, { type: mime });
-
-                                }
-                                const nume = Math.floor(1000000 * Math.random()).toString();
-                                var Arquivo_cortado = dataURLtoFile();
-                                const url_Img = URL.createObjectURL(Arquivo_cortado);
-                                objImg.src = url_Img;
-                                removeFileFromFileList(objBtn_buscar_img)
-                                function removeFileFromFileList(index) {
-                                    const dt = new DataTransfer()
-                                    const input = objFile
-                                    const { files } = input
-
-                                    for (let i = 0; i < files.length; i++) {
-                                        const file = files[i]
-                                        if (index !== i)
-                                            dt.items.add(Arquivo_cortado) // here you exclude the file. thus removing it.
-                                    }
-
-                                    input.files = dt.files // Assign the updates list
-                                };
-
-
-                                // habilitando visibilidade do btn_para enviar para o bd
-                                objBtn_Enviar.classList.remove("d-none");
-                                objBtn_Enviar.classList.remove("disabled");
-                                // deixando o btn off uma vez que ele ja clicou para cortar.
-                                objBtn_cortar.classList.add("d-none");
-
-                            });
-                        });
-                }
- 
-            }
-            
-        });
-        
-
-
-    }
-
-
-}); 
 
 function Video_Function() {
     const Btn_Abrir = document.querySelector('.Btn_Gerador_Text');
@@ -439,18 +302,25 @@ function Fechando_cliente() {
 
 }
 
+function display_objetos(id_open, id_close) {
+
+    const obj_close = document.getElementById(id_close);
+    const obj_open = document.getElementById(id_open);
+    obj_open.style.display = 'block';
+    obj_close.style.display = 'none';
+
+}
 function open_filtro() {
     const container = document.getElementById("Filtro_container");
-    const btns = document.getElementById("BtnFiltro");
+    const btn = document.getElementById("BtnFiltro");
 
 
     // Exiba o container
     container.style.display = 'block';
 
-    // Iterar sobre a lista de botões e definir o estilo para cada um
-    for (const btn of btns) {
+
         btn.style.display = 'none';
-    }
+  
 }
 
 function close_filtro() {
@@ -504,7 +374,7 @@ function alerta(Tipo, menssage) {
             `   <div class="col-lg-12 mx-auto ">
                         <div class="alert alert-${type} alert_Remove alert-dismissible fade show col-12  my-2 mb-1  d-inline-flex" role="alert">
                             <svg class="bi me-3 " width="25" height="25" fill="currentColor">
-                                <use href="~/../Imagens/icones/bootstrap-icons.svg#${Icone}" onerror="this.setAttribute('href','../Imagens/icones/bootstrap-icons.svg#${Icone}');" ></use></svg>
+                                <use href="../Imagens/icones/bootstrap-icons.svg#${Icone}" onerror="this.setAttribute('href','../Imagens/icones/bootstrap-icons.svg#${Icone}');" ></use></svg>
                             <Label runat="server" ID="lblMensagemErro" CssClass="alert p-1 text-uppercase  mx-2 col-12" Visible="false" >${message}</label>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
@@ -1078,3 +948,25 @@ function getCookie(name) {
     }
     return null;
 }
+ function callServerMethod(methodName, params, successCallback, errorCallback) {
+    $.ajax({
+        type: "POST",
+        url: "../GlobalServices.asmx/" + methodName,
+        data: JSON.stringify(params),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if (response.hasOwnProperty("d")) {
+                successCallback(response.d);
+            } else {
+                errorCallback("Resposta inválida do servidor.");
+            }
+        },
+     error: function (xhr, status, error) {
+    console.log("Erro na chamada AJAX: " + status + " - " + error);
+    console.log("Resposta completa do servidor: " + xhr.responseText);
+}
+    });
+}
+
+

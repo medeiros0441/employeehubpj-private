@@ -12,4 +12,15 @@ namespace FW.DTO
         public DateTime DateTimeInsertTu { get; set; }
         public DateTime? DateTimeUpdateTu { get; set; }
     }
+
+    public class ConfiguracaoDTO : TipoUserDTO
+    {
+        public int IdConfiguracao { get; set; }
+        public int FkTipoUserCfc { get; set; }
+        public string TipoConfiguracaoCfc { get; set; }
+        public string DescricaoConfiguracaoCfc { get; set; }
+        public bool ValorConfiguracaoCfc { get; set; }
+        public DateTime DateTimeInsertCfc { get; set; }
+        public DateTime? DateTimeUpdateCfc { get; set; }
+    }
 }

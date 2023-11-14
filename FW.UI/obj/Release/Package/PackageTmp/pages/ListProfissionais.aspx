@@ -58,11 +58,11 @@
 
  
                
-<div  class="    card-body row  " >
+<div  class="    card-body row container mx-auto  " >
       
              <asp:Repeater ID="rpt_cliente" runat="server">
             <itemtemplate>
-                <asp:LinkButton CssClass="border  rounded-3 mx-sm-3 mx-auto  shadow  col-11   text-decoration-none my-2        col-md-6 col-lg-4 " runat="server"   ID="Btn_sessao" class="btn btn-secondary" 
+                <asp:LinkButton CssClass=" text-center  mx-auto    col-11   text-decoration-none my-2        col-md-5 col-lg-4 " runat="server"   ID="Btn_sessao" class="btn btn-secondary" 
                     OnClick="Btn_viewCliente_Command" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "IdCliente") %>' >
         <asp:Image  runat="server" class="bd-placeholder-img mx-auto rounded-circle" onerror="this.onerror=null; this.src='../Cliente/Foto_Cliente/undraw_resume_folder_re_e0bi.svg'"  width="140" height="140"   ImageUrl='<%# DataBinder.Eval(Container.DataItem, "CaminhoFotoCl").ToString() %>'   role="img"      />
         <h2 class=" font-monospace mx-auto "><%# DataBinder.Eval(Container.DataItem, "PrimeironomeCl") %></h2>

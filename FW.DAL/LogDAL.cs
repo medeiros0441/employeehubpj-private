@@ -17,12 +17,12 @@ namespace FW.DAL
             {
                 Conectar();
                 cmd = new SqlCommand("INSERT INTO tb_log (date_time_insert_LG, date_time_update_LG, descricao_LG, descricao_sistema_LG, nivel_gravidade_LG, dados_adicionais_LG, fk_sessao_LG) VALUES (@insert, @update, @descricao, @sistema, @nivel, @dados, @sessao)", conn);
-                cmd.Parameters.AddWithValue("@insert", log.DateTimeInsertLg);
-                cmd.Parameters.AddWithValue("@update", (object)log.DateTimeUpdateLg ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@insert", log.DateTimeInsertLg = DataHoraAtual);
+                cmd.Parameters.AddWithValue("@update", DBNull.Value);
                 cmd.Parameters.AddWithValue("@descricao", log.DescricaoLg);
                 cmd.Parameters.AddWithValue("@sistema", log.DescricaoSistemaLg);
                 cmd.Parameters.AddWithValue("@nivel", log.NivelGravidadeLg);
-                cmd.Parameters.AddWithValue("@dados", (object)log.DadosAdicionaisLg ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@dados",  log.DadosAdicionaisLg);
                 cmd.Parameters.AddWithValue("@sessao", log.FkSessaoLg);
 
                 cmd.ExecuteNonQuery();

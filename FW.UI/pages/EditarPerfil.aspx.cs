@@ -71,10 +71,17 @@ namespace FW.UI.pages
             ClienteDTO.SobrenomeCl = txtSobrenome.Text;
             ClienteDTO.NroCpfCl = txtCPF.Text;
             ClienteDTO.NumeroTelefoneCl = txtTelefone.Text;
-            string dataTexto = txtData.Text;
+       
 
-            if (DateTime.TryParseExact(dataTexto, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dataNascimento))
+            if (DateTime.TryParseExact(txtData.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dataNascimento))
             {
+                // Verificações adicionais para garantir uma data válida
+                if (dataNascimento.Year < 1950 || dataNascimento.Year > DateTime.Now.Year || dataNascimento.Month < 1 || dataNascimento.Month > 12 || dataNascimento.Day < 1 || dataNascimento.Day > DateTime.DaysInMonth(dataNascimento.Year, dataNascimento.Month))
+                {
+                    // A data está fora dos limites aceitáveis, trate o erro aqui.
+                    Master.MensagemJS("Erro", "Data de nascimento inválida.");
+                }
+                else { 
                 ClienteDTO.DataNascimentoCl = dataNascimento;
 
                 ClienteDTO.SexoCl = DDLSexo.Text;
@@ -92,6 +99,7 @@ namespace FW.UI.pages
                 ClienteBLL.Editar_Dados_Cliente(ClienteDTO);
 
                 Master.MensagemJS("Sucesso", "Dados de perfil Editado com sucesso!");
+            }
             }
             else { Master.MensagemJS("Erro", "A data de nascimento é invalida."); }
         }

@@ -140,15 +140,26 @@ namespace FW.UI
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
             Exception ex = Server.GetLastError();
 
             // Obtém a mensagem de erro
             string mensagemErro = ex.InnerException?.Message ?? ex.Message;
 
-            // Redireciona para a página de erro e passa a mensagem como parâmetro de consulta
-            Server.Transfer("Erro.aspx?mensagem=" + Server.UrlEncode(mensagemErro));
+            // Obtém informações sobre o local do erro
+            string localErro = $"{ex.TargetSite?.DeclaringType?.FullName} - {ex.TargetSite?.Name}";
+
+            // Obtém informações sobre a linha do erro
+            var stackTrace = new System.Diagnostics.StackTrace(ex, true);
+            var frame = stackTrace.GetFrame(0);
+            int linhaErro = frame.GetFileLineNumber();
+
+            // Pode usar localErro e linhaErro conforme necessário, por exemplo, para registrar em logs
+            // ou incluir na mensagem de erro que é redirecionada para a página de erro.
+
+            // Redireciona para a página de erro e passa a mensagem e informações do local como parâmetros de consulta
+            Server.Transfer($"Erro.aspx?mensagem={Server.UrlEncode(mensagemErro)}&local={Server.UrlEncode(localErro)}&linha={linhaErro}");
         }
+
 
         protected void Session_End(object sender, EventArgs e)
         {

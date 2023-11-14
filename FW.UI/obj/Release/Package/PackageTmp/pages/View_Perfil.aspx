@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-9 order-2 mx-auto">
             <div class="row  gy-2 p-2 mb-3   ">
-                <div class="col-sm-12">
+                <div class="col-sm-12 p-0 px-md-2">
                     <asp:Label runat="server" CssClass="form-text col-md-10 font-monospace" Font-Size="X-Large" ID="lblNomePro" />
                 </div>
                 <div class="col-sm-auto col-12 p-0 m-0 px-md-2">
@@ -37,6 +37,7 @@
                      <asp:label runat="server" Font-Size="Medium"  class=" font-monospace fw-semibold " Text="Sexo: "/>
                     <asp:Label runat="server" ID="lblSexo" CssClass="form-text font-monospace" Font-Size="Medium" />
                 </div>
+<hr class="my-1  w-75 mx-auto">
                 <div class="col-sm-auto col-12 p-0 m-0 px-md-2">
                     <asp:label runat="server" Font-Size="Medium"  class=" font-monospace fw-semibold  " Text="Biografia Acadêmica"/>
                     <asp:Label ID="lblBiografiaPro" runat="server" CssClass="cont-text-400-click   form-text font-monospace" Font-Size="Medium" />
@@ -325,11 +326,11 @@
                                     </div>
                                     <div class="col-12">
                                        <asp:label  runat="server" Font-Size="Small" class="   font-monospace fw-bold"  Text="Iniciou: " />
-                                        <asp:Label runat="server" Font-Size="Smaller" class="   font-monospace  text-secondary"  TextMode="Date" Text='<%#  ((DateTime)DataBinder.Eval(Container.DataItem, "DateInicioEx")).ToString("mm/yyyy") %>'/>   
+                                        <asp:Label runat="server" Font-Size="Smaller" class="   font-monospace  text-secondary"  TextMode="Date" Text='<%#  ((DateTime)DataBinder.Eval(Container.DataItem, "DateInicioEx")).ToString("MM/yyyy") %>'/>   
                                     </div>
                                     <div class="col-12">
                                         <asp:label  runat="server" Font-Size="Small" class="   font-monospace fw-bold"  Text="Conclusão: " />
-                                        <asp:Label runat="server" Font-Size="Smaller" class="   font-monospace text-secondary"   TextMode="Date"  Text='<%#  ((DateTime)Eval("DateFinalizouEx")).ToString("mm/yyyy") %>' />
+                                        <asp:Label runat="server" Font-Size="Smaller" class="   font-monospace text-secondary"   TextMode="Date"  Text='<%#  ((DateTime)Eval("DateFinalizouEx")).ToString("MM/yyyy") %>' />
                                     </div>
                                     <div class="col-12">
                                         <asp:label  runat="server" Font-Size="Small" class="   font-monospace fw-bold"  Text="Contratação: "/>
@@ -373,12 +374,12 @@
                                     </div>
                                     <div class=" col-12">
                                         <asp:label  runat="server" Font-Size="Small"  CssClass="   font-monospace fw-bold"  Text="Iniciou: "/>
-                                        <asp:Label runat="server" Font-Size="Smaller"  CssClass="   font-monospace text-secondary "  TextMode="Month" Text='<%#  ((DateTime)DataBinder.Eval(Container.DataItem, "DateInicioCf")).ToString("mm/yyyy") %> ' />
+                                        <asp:Label runat="server" Font-Size="Smaller"  CssClass="   font-monospace text-secondary "  TextMode="Month" Text='<%#  ((DateTime)DataBinder.Eval(Container.DataItem, "DateInicioCf")).ToString("MM/yyyy") %> ' />
 
                                     </div>
                                     <div class=" col-12">
                                         <asp:label  runat="server" Font-Size="Small"  CssClass="   font-monospace fw-bold"  Text="Conclução: "/>
-                                        <asp:Label runat="server" Font-Size="Smaller"  CssClass="   font-monospace text-secondary "   Text='<%#  ((DateTime)DataBinder.Eval(Container.DataItem, "DateFinalizouCf")).ToString("mm/yyyy") %>' />                                    </div>
+                                        <asp:Label runat="server" Font-Size="Smaller"  CssClass="   font-monospace text-secondary "   Text='<%#  ((DateTime)DataBinder.Eval(Container.DataItem, "DateFinalizouCf")).ToString("MM/yyyy") %>' />                                    </div>
 
 
                                     <div class="border-bottom"></div>
