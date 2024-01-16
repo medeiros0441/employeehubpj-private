@@ -1,4 +1,4 @@
-Hi Word, Software de gestão de vagas cujo nome é employee hub PJ 
+Hi World, Software de gestão de vagas cujo nome é employee hub PJ 
 O software web foi desenvovido com tech .Net 4.8 sendo ele webForms 
 Conta com páginas para cadastro login de usuário sendo possível dois tipos de usuários empresa e profissional.
 
